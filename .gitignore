@@ -1,0 +1,5 @@
+dist/
+src/Class_Capacity_Forecaster.egg-info
+.idea/
+
+.DS_Store
