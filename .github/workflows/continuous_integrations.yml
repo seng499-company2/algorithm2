@@ -1,5 +1,5 @@
 # This workflow will install Python dependencies, and run tests with a variety of Python versions
-name: test
+name: continuous_integrations
 
 on:
   push:
