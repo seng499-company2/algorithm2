@@ -7,7 +7,7 @@ setuptools.setup(
     name="Class-Capacity-Forecaster",
     version="0.0.1",
     author="Algorithm 2 SubTeam",
-    author_email="N/A",
+    author_email="seanmcauliffe42@gmail.com",
     description="An algorithm for predicting future class capacities based on historical enrollment",
     long_description=long_description,
     long_description_content_type="text/markdown",
