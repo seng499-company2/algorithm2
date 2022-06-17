@@ -3,7 +3,6 @@ name: continuous_integrations
 
 on:
   push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
