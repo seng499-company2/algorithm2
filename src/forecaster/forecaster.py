@@ -1,29 +1,46 @@
 import json
 import sys
-from .preprocessor import preProcess, computeBounds
+from .preprocessor import pre_process, compute_bounds
 from .determination import determine_approach
 from .statistical import apply_auto_arima
 from .heuristic import apply_heuristics
-from .guarantor import check_intermediate_validity, check_final_validity, Status
-from .postprocessor import postProcess
+from .guarantor import verify_intermediate, verify_final, Status
+from .postprocessor import post_process
 
 
-def forecast(course_enrollment: dict, program_enrollment: dict, schedule: dict) -> str:
-    lower_bound, upper_bound = computeBounds(program_enrollment)
-    intermediate_course_object = preProcess(course_enrollment)
+def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) -> str:
+    """ The forecast method will assign capacities to each course offering
+    in the provided schedule object. It will use historical program and course
+    enrollment data provided from JSON files to make determination about each
+    course capacity.
 
-    determine_approach(intermediate_course_object)
-    apply_auto_arima(intermediate_course_object)
-    apply_heuristics(intermediate_course_object, lower_bound, upper_bound, program_enrollment)
+    :param course_enrolment: python object loaded from course enrollment file
+    :param program_enrolment: python objected loaded from program enrollment file
+    :param schedule: common object shared with alg-1 representing course offerings
+    :return: JSON encoding of schedule object with capacities assigned
+    """
 
-    status = check_intermediate_validity(intermediate_course_object, schedule, lower_bound, upper_bound)
+    # Preprocessing steps, generate internal data series
+    low_bound, high_bound = compute_bounds(program_enrolment)
+    internal_series = pre_process(course_enrolment)
+
+    # Determine approach and assign course capacities
+    determine_approach(internal_series)
+    apply_auto_arima(internal_series)
+    apply_heuristics(internal_series, low_bound, high_bound, program_enrolment)
+
+    # Verify that internal_series assignment was valid
+    status = verify_intermediate(internal_series, schedule, low_bound, high_bound)
     if status is not Status.GOOD:
         raise Exception("Algorithm 2 failed to produce an output.")
 
-    schedule = postProcess(intermediate_course_object, schedule)
+    # Translate internal_series into schedule object
+    output_schedule = post_process(internal_series, schedule)
 
-    status = check_final_validity(schedule)
+    # Verify final schedule object
+    status = verify_final(output_schedule, schedule)
     if status is not Status.GOOD:
         raise Exception("Algorithm 2 failed to produce an output.")
 
-    return json.dumps(schedule)
+    # Return schedule to caller
+    return json.dumps(output_schedule)

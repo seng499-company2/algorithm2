@@ -4,5 +4,5 @@ from forecaster import forecaster
 
 
 def test_forecaster():
-    #rc = forecaster.forecast({}, {}, {})
+    # rc = forecaster.forecast({}, {}, {})
     assert 1 == 1
