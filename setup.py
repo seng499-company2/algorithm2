@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 # Inspect current most recent version on PyPi index
-url = "https://test.pypi.org/project/Class-Capacity-Forecaster/"
+url = "https://test.pypi.org/project/capacityforecaster/"
 response = urlopen(url)
 htmlparser = etree.HTMLParser()
 tree = etree.parse(response, htmlparser)
