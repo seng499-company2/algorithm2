@@ -4,5 +4,6 @@ src/Class_Capacity_Forecaster.egg-info
 src/forecaster/__pycache__/
 test/__pycache__/
 build/
+src/capacityforecaster.egg-info/
 
 .DS_Store

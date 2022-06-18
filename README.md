@@ -1,47 +1,52 @@
 # Algorithm 2: Class Offering Capacity Forecaster
 
-This repository contains a small package, *Class-Capacity-Forecaster*, for
+This repository contains a small package, *capacityforecaster*, for
 estimating required course offering capacities based on historical enrollment
 data. 
 
 This package was authored for the Company 2 course scheduler project by the Company2-Algorithm2 subsystem team.
 
-## Install from PiPy Using `pip` (Recommended)
-Download this repo from TestPyPi using pip
+## Install from TestPyPi Using `pip` (Recommended)
+Install this package into your environment from TestPyPi using `pip`. You must specify that
+this package is found on the test PyPi index as below.
 
 ```bash
-$ pip install -i https://test.pypi.org/simple/ Class-Capacity-Forecaster
+$ pip install -i https://test.pypi.org/simple/ capacityforecaster
+```
+The most recent available version of the package is uploaded to the test PyPi index automatically.
+To ensure that you are working with the most recent release upgrade this module before integrating.
+
+```bash
+$ python3 -m pip install --upgrade capacityforecaster
 ```
 
-The algorithm 2 module may then be imported into and called from the backend.
-
-```python
-from Class-Capacity-Forecaster import forecaster
-forecaster.forecast(course_enrollment, program_enrollment, schedule)
-```
-
-## Install from Local Build
+## Install from Local Archives
 
 Clone this repo into the scheduler (or backend) repository. Inside the algorithm 2 module directory,
 build and install the package as shown below. Change the version number from `0.0.1` to the current
-version (specified) in `setup.py`.
+ version.
 
 ```bash
 $ python3 -m build
-$ pip3 install ./dist/Class-Capacity-Forecaster-0.0.1.tar
+$ pip3 install ./dist/capacityforecaster-0.0.1.tar.gz
 ```
 
-The algorithm 2 module may then be imported into and called from the backend.
+## Usage
+The algorithm 2 module may then be imported into and called from the backend. In the example below
+`course_enrollment` `program_enrollment` and `schedule` are python dictionaries or
+JSON strings. A schedule object with capacities assigned is encoded as a JSON string and returned
+to caller.
 
 ```python
-from Class-Capacity-Forecaster import forecaster
-forecaster.forecast(course_enrollment, program_enrollment, schedule)
+from forecaster.forecaster import forecast
+schedule = forecast(course_enrollment, program_enrollment, schedule)
 ```
 
 ## Dev 
 
-To use the changed code in forecaster dir, you need to pip install the package first.
-Make sure your current working directory is `~/algorithm2`
+To make and test changes to the project, navigate into the root level directory 
+`/path/to/algorithm2/`. After editing the projet files, in order for the changes to take
+effect you must reinstall the local package by the following cmd:
 
 ```bash
 $ pip install . 
