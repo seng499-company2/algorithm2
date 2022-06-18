@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="Class-Capacity-Forecaster",
-    version="0.0.2",
+    version="0.0.3",
     author="Algorithm 2 SubTeam",
     author_email="seanmcauliffe42@gmail.com",
     description="An algorithm for predicting future class capacities based on historical enrollment",
