@@ -1,0 +1,44 @@
+{
+  "fall": [
+    {
+      "course": {
+        "code": "CSC225",
+        "title": "Algorithms and Data Structures I"
+      },
+      "sections": [
+        {
+          "professor": "",
+          "capacity": "0"
+        }
+      ]
+    }
+  ],
+  "spring": [
+    {
+      "course": {
+        "code": "CSC320",
+        "title": "Foundations of Computer Science"
+      },
+      "sections": [
+        {
+          "professor": "",
+          "capacity": "0"
+        }
+      ]
+    }
+  ],
+  "summer": [
+    {
+      "course": {
+        "code": "CSC360",
+        "title": "Operating Systems"
+      },
+      "sections": [
+        {
+          "professor": "",
+          "capacity": "0"
+        }
+      ]
+    }
+  ]
+}
