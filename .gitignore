@@ -1,5 +1,7 @@
 dist/
 src/Class_Capacity_Forecaster.egg-info
 .idea/
+src/forecaster/__pycache__/
+test/__pycache__/
 
 .DS_Store

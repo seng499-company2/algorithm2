@@ -3,9 +3,12 @@ import setuptools
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
+with open("./version.txt", "r") as fv:
+    version = fv.read()
+
 setuptools.setup(
     name="Class-Capacity-Forecaster",
-    version="0.0.1",
+    version=version,
     author="Algorithm 2 SubTeam",
     author_email="seanmcauliffe42@gmail.com",
     description="An algorithm for predicting future class capacities based on historical enrollment",
