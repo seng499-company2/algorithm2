@@ -1,22 +1,24 @@
 import json
+
+
 outputFileName = "../data/mockSchedule.json"
 
-courseFall   = {'code':  'CSC225',
+courseFall   = {'code' :  'CSC225',
                 'title': 'Algorithms and Data Structures I'}
-courseSpring = {'code':  'CSC320',
+courseSpring = {'code' :  'CSC320',
                 'title': 'Foundations of Computer Science'}
-courseSummer = {'code':  'CSC360',
+courseSummer = {'code' :  'CSC360',
                 'title': 'Operating Systems'}
 
 courseFallSectionOne   = {'professor': '',
                           'capacity' : '0'}
-coursespringSectionOne = {'professor': '',
+courseSpringSectionOne = {'professor': '',
                           'capacity' : '0'}
 courseSummerSectionOne = {'professor': '',
                           'capacity' : '0'}
 
 courseFallSections   = [courseFallSectionOne]
-courseSpringSections = [coursespringSectionOne]
+courseSpringSections = [courseSpringSectionOne]
 courseSummerSections = [courseSummerSectionOne]
 
 courseOfferingFall   = {'course'  : courseFall,
@@ -30,7 +32,7 @@ fall   = [courseOfferingFall]
 spring = [courseOfferingSpring]
 summer = [courseOfferingSummer]
 
-schedule = {'fall':fall,'spring':spring,'summer':summer}
+schedule = {'fall': fall, 'spring': spring, 'summer': summer}
 
 with open(outputFileName, 'w') as f:
     json.dump(schedule, f)
@@ -38,5 +40,4 @@ with open(outputFileName, 'w') as f:
 
 with open(outputFileName, 'r') as f:
     obj = json.load(f)
-    print(obj
-          )
+    print(obj)
