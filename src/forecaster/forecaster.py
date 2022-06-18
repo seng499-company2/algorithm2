@@ -27,7 +27,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
     # Determine approach and assign course capacities
     determine_approach(internal_series)
     apply_auto_arima(internal_series)
-    apply_heuristics(internal_series, low_bound, high_bound, program_enrolment)
+    apply_heuristics(internal_series, program_enrolment, low_bound, high_bound)
 
     # Verify that internal_series assignment was valid
     status = verify_intermediate(internal_series, schedule, low_bound, high_bound)
