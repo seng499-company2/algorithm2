@@ -28,7 +28,7 @@ if minor > 9:
 release_version = f"{major}.{minor}.{patch}"
 
 setuptools.setup(
-    name="Class-Capacity-Forecaster",
+    name="capacityforecaster",
     version=release_version,
     author="Algorithm 2 SubTeam",
     author_email="seanmcauliffe42@gmail.com",
