@@ -10,6 +10,7 @@ import math
 _MIN_COURSES = 1
 _MAX_COURSES = 6
 _RATIO_ACADEMIC = float(11/15)
+_PROGRAM_GROWTH = 1.0855
 
 # Private Module Helper Functions
 # API Functions
@@ -27,7 +28,10 @@ def compute_bounds(program_enrolment: dict) -> (int, int):
     for year in program_enrolment["2021"].keys():
         prev_enrollment += program_enrolment["2021"][year]
 
-    current_enrolment = math.ceil(prev_enrollment * 1.0855)
+    # TODO: It might be worthwhile to actually recompute the trend line
+    # In this function, rather than hard coding 8.55%
+    current_enrolment = math.ceil(prev_enrollment * _PROGRAM_GROWTH)
+
     lower_bound = _MIN_COURSES * math.ceil((current_enrolment * _RATIO_ACADEMIC))
     upper_bound = _MAX_COURSES * math.ceil((current_enrolment * _RATIO_ACADEMIC))
 
