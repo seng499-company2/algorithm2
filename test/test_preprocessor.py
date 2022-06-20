@@ -3,10 +3,12 @@ import json
 from forecaster import preprocessor
 
 
-def test_computeBounds():
-    low_bound, high_bound = preprocessor.compute_bounds({})
-    assert low_bound == 0
-    assert high_bound == 100
+def test_compute_bounds():
+    with open("../data/programEnrollmentData.json", "r") as fb:
+        x = json.load(fb)
+    low_bound, high_bound = preprocessor.compute_bounds(x[0])
+    assert low_bound == 352
+    assert high_bound == 2112
 
 
 def test_preprocessor():
