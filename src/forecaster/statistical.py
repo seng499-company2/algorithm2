@@ -24,19 +24,22 @@ def apply_auto_arima(internal_series: dict) -> None:
     # :param internal_series: Data series collated per course offering
     # :return: None, internal_series is modified in place
     
+    time_index = [i for i in range(1, 15)]
+    
     test_dict = {"CSC110-F": {"data": [0, 0, 500, 200, 400, 300, 150, 200, 220, 175, 124, 221, 175, 200], "approach": 1, "capacity": 500}}
     
     for key in test_dict:
         course_sem = key
         if test_dict[key]["approach"] == 1:
             past_data = test_dict[key]["data"]
-            
-    time_index = [i for i in range(1, 15)]
-    data_dict = {'time': time_index, 'hist_capacities': past_data}
-    df = pd.DataFrame.from_dict(data_dict)
-    df = df.set_index('time')
+            data_dict = {'time': time_index, 'hist_capacities': past_data}
+            df = pd.DataFrame.from_dict(data_dict)
+            df = df.set_index('time')
+            capacity = predict_capacity(df)
+            test_dict[key]["capacity"] = capacity
     
-    model = auto_arima(df, start_p = 1, start_1 = 2,
+def predict_capacity(time_series):
+    model = auto_arima(time_series, start_p = 1, start_1 = 2,
                        test = 'adf',
                        max_p = 5, max_a = 5,
                        m = 1,
@@ -51,12 +54,8 @@ def apply_auto_arima(internal_series: dict) -> None:
     
     print(model.summary())
     
-    print(model.predict(1))
-    
-            
-    
-            
-        
+    capacity = model.predict(1)
+    return capacity[0]
         
 if __name__ == '__main__':
     main()
