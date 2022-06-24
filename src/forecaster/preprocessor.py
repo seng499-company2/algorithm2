@@ -1,13 +1,78 @@
 # preprocessor.py
-# Author:
+# Author: Tristan Cusi
 # Date: June 17th, 2022
 # This module preprocesses data for use in the forecaster
 
 import json
 
 # Private Module Variables, Classes
+
+#=============================================================================
 # Private Module Helper Functions
+#=============================================================================
+
+
+def get_historical_term_codes(course_enrollment: list) -> dict:
+    """ This function takes in the historical enrollments, counts up the
+    term-course offering codes (eg 201801) and separates them into three terms
+    fall, spring and summer"""
+    historical_term_codes = {'fall':[], 'spring': [], 'summer': []}
+
+    for course_term_offering in course_enrollment:
+        if course_term_offering['term'].endswith('09'):
+            historical_term_codes['fall']\
+            .append(course_term_offering['term'])
+        elif course_term_offering['term'].endswith('01'):
+            historical_term_codes['spring']\
+            .append(course_term_offering['term'])
+        elif course_term_offering['term'].endswith('05'):
+            historical_term_codes['summer']\
+            .append(course_term_offering['term'])
+
+    for term in ('fall', 'spring', 'summer'):
+        historical_term_codes[term] = remove_dups(historical_term_codes[term])
+        historical_term_codes[term].sort()
+
+    return historical_term_codes
+
+
+def remove_dups(input_list: list) -> list:
+    """ This function removes duplicates from a list and returns that list"""
+    return list(dict.fromkeys(input_list))
+
+def get_set_of_course_codes(schedule: dict) -> set:
+    """ This function takes in a schedule object and returns a set (unique
+    list) of all course codes in that schedule"""
+    list_of_courses = []
+
+    for term in schedule.values():
+        for course_offering in term:
+            list_of_courses.append(course_offering['course']['code'])
+    return set(list_of_courses)
+
+
+def is_course_in_term(course_code: str, course_obj_list: list) -> bool:
+    """ This function checks if a course is in the given schedule term course
+    list"""
+    for course_obj in course_obj_list:
+        if course_obj['course']['code'] == course_code:
+            return True
+    return False
+
+
+def get_capacity(course_code: str, course_offerings: list) -> int:
+    """ This function retrieves the cumulative capacity for all sections of a
+    course in a specified term"""
+    capacity = 0;
+    for course_offering in course_offerings:
+        if course_offering['course']['code'] == course_code:
+            for section in course_offering['sections']:
+                capacity = capacity + int(section['capacity'])
+    return capacity
+
+#=============================================================================
 # API Functions
+#=============================================================================
 
 
 def compute_bounds(program_enrolment: dict) -> (int, int):
@@ -53,6 +118,7 @@ def pre_process(course_enrollment: list, schedule: dict) -> dict:
             if capacity > 0:
                 intermediate[key] = {'data': None, 'approach': 0, \
                     'capacity': capacity}
+                continue
 
             data = []
             # for each offering in (200801, 200805....)
@@ -69,61 +135,3 @@ def pre_process(course_enrollment: list, schedule: dict) -> dict:
             intermediate[key] = {'data': data, 'approach': 0, 'capacity': 0}
 
     return intermediate 
-
-
-def get_historical_term_codes(course_enrollment: list) -> dict:
-    """ This function takes in the historical enrollments, counts up the 
-    term-course offering codes (eg 201801) and separates them into three terms
-    fall, spring and summer"""
-    historical_term_codes = {'fall':[], 'spring': [], 'summer': []}
-
-    for course_term_offering in course_enrollment:
-        if course_term_offering['term'].endswith('09'):
-            historical_term_codes['fall']\
-            .append(course_term_offering['term'])
-        elif course_term_offering['term'].endswith('01'):
-            historical_term_codes['spring']\
-            .append(course_term_offering['term'])
-        elif course_term_offering['term'].endswith('05'):
-            historical_term_codes['summer']\
-            .append(course_term_offering['term'])
-
-    for term in ('fall', 'spring', 'summer'):
-        historical_term_codes[term] = remove_dups(historical_term_codes[term])
-        historical_term_codes[term].sort()
-
-    return historical_term_codes
-
-def remove_dups(input_list: list) -> list:
-    """ This function removes duplicates from a list and returns that list"""
-    return list(dict.fromkeys(input_list))
-
-def get_set_of_course_codes(schedule: dict) -> set:
-    """ This function takes in a schedule object and returns a set (unique
-    list) of all course codes in that schedule"""
-    list_of_courses = []
-
-    for term in schedule.values():
-        for course_offering in term:
-            list_of_courses.append(course_offering['course']['code'])
-    return set(list_of_courses)
-
-
-def is_course_in_term(course_code: str, course_obj_list: list) -> bool:
-    """ This function checks if a course is in the given schedule term course
-    list"""
-    for course_obj in course_obj_list:
-        if course_obj['course']['code'] == course_code:
-            return True
-    return False
-
-
-def get_capacity(course_code: str, course_offerings: list) -> int:
-    """ This function retrieves the cumulative capacity for all sections of a
-    course in a specified term"""
-    capacity = 0;
-    for course_offering in course_offerings:
-        if course_offering['course']['code'] == course_code:
-            for section in course_offering['sections']:
-                capacity = capacity + int(section['capacity'])
-    return capacity

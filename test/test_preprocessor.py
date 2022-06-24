@@ -2,27 +2,7 @@ import pytest
 import json
 from forecaster import preprocessor
 from mock_data_generator import mock_data_generator
-
-
-def generate_historial_offering(course: str, term: str, enrollment: int) -> dict:
-    return {'term': term, 'enrollment': enrollment, 'subjectCourse': course}
-
-
-def generate_course_enrollment(fall_courses: list, spring_courses: list, summer_courses: list, historical_terms: list) -> dict:
-    course_enrollment = []
-    for course_list in (fall_courses, spring_courses, summer_courses):
-        for course in course_list:
-            for historical_term in historical_terms:
-                if((course_list == fall_courses) and (historical_term.endswith('09'))):
-                    course_enrollment\
-                    .append(generate_historial_offering(course, historical_term, 1))
-                elif((course_list == spring_courses) and (historical_term.endswith('01'))):
-                    course_enrollment\
-                    .append(generate_historial_offering(course, historical_term, 1))
-                elif((course_list == summer_courses) and (historical_term.endswith('05'))):
-                    course_enrollment\
-                    .append(generate_historial_offering(course, historical_term, 1))
-    return course_enrollment
+from mock_data_generator import generate_course_enrollment
 
 
 def test_computeBounds():
@@ -89,5 +69,18 @@ def test_preprocessor():
                     'SENG275-F': {'data': [1, 1], 'approach': 0, 'capacity': 0},
                     'CSC226-SP': {'data': [1, 1], 'approach': 0, 'capacity': 0},
                     'CSC230-SU': {'data': [1], 'approach': 0, 'capacity': 0},
+                    }
+
+def test_preprocessor_advanced():
+    schedule_test = json.load(open('../data/mockSchedule2.json', 'r'))
+    course_enrollment_test = json.load(open('../data/mockHistoricCourseData.json', 'r'))
+
+    data = preprocessor.pre_process(course_enrollment_test, schedule_test)
+
+    assert data == {'CSC225-F': {'data': [10, 10, 10, 30], 'approach': 0, 'capacity': 0},
+                    'CSC226-F': {'data': [10, 10, 30, 10], 'approach': 0, 'capacity': 0},
+                    'CSC320-SP': {'data': None, 'approach': 0, 'capacity': 40},
+                    'CSC360-SU': {'data': [10, 30,10, 10], 'approach': 0, 'capacity': 0},
+                    'CSC370-SU': {'data': None, 'approach': 0, 'capacity': 100},
                     }
 
