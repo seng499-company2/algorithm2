@@ -6,7 +6,7 @@
 import math
 
 # Module Private Variables and Classes
-PROGRAM_GROWTH = 1.0855
+PROGRAM_GROWTH = 1.0855  # TODO: Calculate this dynamically based on program enrolment
 MIN_COURSES = 1
 MAX_COURSES = 6
 RATIO_ACADEMIC = float(11/15)
@@ -28,7 +28,7 @@ def compute_bounds(program_enrolment: dict) -> (int, int):
         prev_enrollment += program_enrolment["2021"][year]
 
     # TODO: It might be worthwhile to actually recompute the trend line
-    # In this function, rather than hard coding 8.55%
+    #  in this function, rather than hard coding 8.55%
     current_enrolment = math.ceil(prev_enrollment * PROGRAM_GROWTH)
 
     lower_bound = MIN_COURSES * math.ceil((current_enrolment * RATIO_ACADEMIC))

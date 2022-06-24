@@ -19,24 +19,18 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
     the heuristic approach, guarantee a course capacity to be applied to
     each course.
 
+    Heuristic 1: current_enrollment =
+    (most_recent_enrolment/total_enrollment_that_year)*(1.0855^years_since_last_data)
+    Heuristic 2: current_enrollment = (remaining_seats/number_unassigned_courses)
+    remaining_seats = high_bound - sum(assigned_capacities)
+    Use heuristic 1 if at least 1 data point
+    Use heuristic 2 if no data points at all
+
     :param internal_series: Data series collated by course offering
     :param enrolment: program enrollment loaded from JSON object
     :param low_bound: minimum number of global seats
     :param high_bound: maximum number of global seats
     :return: None, the internal series is modified in place
-    """
-
-    """ Approach is 0
-    {"CSC110-F": {"data": [68, 81, 122, 115, 153], "approach": 0, "capacity": 0},
-     "CSC116-F": {"data": [0, 0, 91, 112, 130], "approach": 1, "capacity": 0},
-     "SENG265-F": {"data": [0, 91, 0, 129, 142], "approach": 0, "capacity": 0}}
-     
-    Heuristic 1: current_enrollment = (most_recent_enrolment/total_enrollment_that_year)*(1.0855^years_since_last_data)
-    Heuristic 2: current_enrollment = (remaining_seats/number_unassigned_courses)
-    remaining_seats = high_bound - sum(assigned_capacities)
-    Use heuristic 1 if at least 1 data point
-    Use heuristic 2 if no data points at all
-    Use heuristic 1 to assign as many courses as possible before resorting to heuristic 2
     """
 
     remaining_seats = high_bound
