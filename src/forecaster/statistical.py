@@ -26,18 +26,20 @@ def apply_auto_arima(internal_series: dict) -> None:
     
     time_index = [i for i in range(1, 15)]
     
-    test_dict = {"CSC110-F": {"data": [0, 0, 500, 200, 400, 300, 150, 200, 220, 175, 124, 221, 175, 200], "approach": 1, "capacity": 500}}
+    internal_series = {"CSC110-F": {"data": [0, 0, 500, 200, 400, 300, 150, 200, 220, 175, 124, 221, 175, 200], "approach": 1, "capacity": 500}}
     
-    for key in test_dict:
+    for key in internal_series:
         course_sem = key
-        if test_dict[key]["approach"] == 1:
-            past_data = test_dict[key]["data"]
+        if internal_series[key]["approach"] == 1:
+            past_data = internal_series[key]["data"]
             data_dict = {'time': time_index, 'hist_capacities': past_data}
             df = pd.DataFrame.from_dict(data_dict)
             df = df.set_index('time')
             capacity = predict_capacity(df)
-            test_dict[key]["capacity"] = capacity
-    
+            internal_series[key]["capacity"] = capacity
+            
+    return internal_series
+        
 def predict_capacity(time_series):
     model = auto_arima(time_series, start_p = 1, start_1 = 2,
                        test = 'adf',
@@ -51,9 +53,7 @@ def predict_capacity(time_series):
                        error_action = 'ignore',
                        suppress_warnings= True,
                        stepwise = True)
-    
-    print(model.summary())
-    
+        
     capacity = model.predict(1)
     return capacity[0]
         
