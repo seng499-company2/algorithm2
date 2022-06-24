@@ -41,7 +41,6 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
         if internal_series[course]["capacity"] == 0:
             for i, enrolment in enumerate(reversed(internal_series[course]["data"])):
                 if enrolment != 0:
-                    print(f"For course: {course}, the enrollment was {enrolment}, {i+1} years ago.")
                     internal_series[course]["capacity"] = math.floor(enrolment * math.pow(PROGRAM_GROWTH, (i+1)))
                     break
 
