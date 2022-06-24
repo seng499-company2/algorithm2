@@ -47,5 +47,6 @@ setuptools.setup(
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     include_package_data=True,
+    install_requires=['pmdarima'],
     python_requires=">=3.6",
 )
