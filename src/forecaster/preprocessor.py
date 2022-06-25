@@ -2,12 +2,14 @@
 # Author: Tristan Cusi
 # Date: June 17th, 2022
 # This module preprocesses data for use in the forecaster
+import math
 
-import json
+# Module Private Variables and Classes
+PROGRAM_GROWTH = 1.0855  # TODO: Calculate this dynamically based on program enrolment
+MIN_COURSES = 1
+MAX_COURSES = 6
+RATIO_ACADEMIC = float(11/15)
 
-# Private Module Variables, Classes
-
-#=============================================================================
 # Private Module Helper Functions
 #=============================================================================
 
@@ -75,17 +77,26 @@ def get_capacity(course_code: str, course_offerings: list) -> int:
 #=============================================================================
 
 
+
 def compute_bounds(program_enrolment: dict) -> (int, int):
     """ This function computes the upper and lower bound on the global
-    seat allocation
+    seat allocation.
 
-    :param program_enrolment:
-    :return:
+    :param program_enrolment: historical course enrollment data
+    :return: lower and upper bound for global seat assignment
     """
 
-    lower_bound = 0
-    upper_bound = 100
-    # Implement this
+    prev_enrollment = 0
+    for year in program_enrolment["2021"].keys():
+        prev_enrollment += program_enrolment["2021"][year]
+
+    # TODO: It might be worthwhile to actually recompute the trend line
+    #  in this function, rather than hard coding 8.55%
+    current_enrolment = math.ceil(prev_enrollment * PROGRAM_GROWTH)
+
+    lower_bound = MIN_COURSES * math.ceil((current_enrolment * RATIO_ACADEMIC))
+    upper_bound = MAX_COURSES * math.ceil((current_enrolment * RATIO_ACADEMIC))
+
     return lower_bound, upper_bound
 
 
