@@ -27,6 +27,7 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
     :return: status code representing result of verification
     """
 
+
     return Status.GOOD
 
 
