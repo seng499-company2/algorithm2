@@ -19,8 +19,8 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
     :param schedule: common object shared with alg-1 representing course offerings
     :return: JSON encoding of schedule object with capacities assigned
     """
-    if(course_enrolment == None and program_enrolment == None and schedule == None):
-        return "{status:OK}"
+    if course_enrolment is None and program_enrolment is None and schedule is None:
+        return '{"status":"OK"}'
 
     # Preprocessing steps, generate internal data series
     low_bound, high_bound = compute_bounds(program_enrolment)
