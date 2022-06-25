@@ -25,7 +25,6 @@ def mock_data_generator(fall_courses: list, spring_courses: list, summer_courses
     """
     This function create a mock schedule object that can be used for testing different
     scenarios of input data
-
     :param fall_courses:   Courses to add to fall term
     :param spring_courses: Courses to add to spring term
     :param summer_courses: Courses to add to summer term
@@ -47,3 +46,34 @@ def mock_data_generator(fall_courses: list, spring_courses: list, summer_courses
     mock_schedule = json.loads(json_obj)
 
     return mock_schedule
+
+
+def generate_historial_offering(course: str, course_term_code: str, enrollment: int) -> dict:
+    """ This function takes in a course, course-term code, and enrollment
+    value and returns a single historical offering dictionary"""
+    return {'term': course_term_code, 'enrollment': enrollment, 'subjectCourse': course}
+
+
+def generate_course_enrollment(fall_courses: list, spring_courses: list, summer_courses: list, historical_terms: list) -> dict:
+    """ 
+    This function creates a moch course enrollment data set that can be used for testing
+    :param fall_courses:   Courses to add to fall term
+    :param spring_courses: Courses to add to spring term
+    :param summer_courses: Courses to add to summer term 
+    :param historical_terms: List of course-term codes
+    :return: a course enrollment object containing the moch data
+    """
+    course_enrollment = []
+    for course_list in (fall_courses, spring_courses, summer_courses):
+        for course in course_list:
+            for historical_term in historical_terms:
+                if((course_list == fall_courses) and (historical_term.endswith('09'))):
+                    course_enrollment\
+                    .append(generate_historial_offering(course, historical_term, 1))
+                elif((course_list == spring_courses) and (historical_term.endswith('01'))):
+                    course_enrollment\
+                    .append(generate_historial_offering(course, historical_term, 1))
+                elif((course_list == summer_courses) and (historical_term.endswith('05'))):
+                    course_enrollment\
+                    .append(generate_historial_offering(course, historical_term, 1))
+    return course_enrollment

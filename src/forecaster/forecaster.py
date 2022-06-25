@@ -22,7 +22,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
 
     # Preprocessing steps, generate internal data series
     low_bound, high_bound = compute_bounds(program_enrolment)
-    internal_series = pre_process(course_enrolment)
+    internal_series = pre_process(course_enrolment, schedule)
 
     # Determine approach and assign course capacities
     determine_approach(internal_series)
