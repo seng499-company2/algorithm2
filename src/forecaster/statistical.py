@@ -1,12 +1,32 @@
+# statistical.py
+# Author: Siddhant Kumar
+# Date: June 17th, 2022
+# This module applies the auto-ARIMA method to predict course capacities
+
 from pmdarima.arima import auto_arima
 import pandas as pd
 import numpy as np
 
-# statistical.py
-# Author:
-# Date: June 17th, 2022
-# This module applies the auto-ARIMA method to predict course capacities
+
 # Helper Functions
+def predict_capacity(time_series):
+    model = auto_arima(time_series, start_p = 1, start_1 = 2,
+                       test = 'adf',
+                       max_p = 5, max_a = 5,
+                       m = 1,
+                       d = 1,
+                       seasonal = False,
+                       start_P = 0,
+                       D = None,
+                       trace = True,
+                       error_action = 'ignore',
+                       suppress_warnings= True,
+                       stepwise = True)
+        
+    capacity = model.predict(1)
+    return capacity[0]
+
+
 # Module API
 
 def apply_auto_arima(internal_series: dict) -> dict:
@@ -35,20 +55,5 @@ def apply_auto_arima(internal_series: dict) -> dict:
             
     return internal_series            
                     
-def predict_capacity(time_series):
-    model = auto_arima(time_series, start_p = 1, start_1 = 2,
-                       test = 'adf',
-                       max_p = 5, max_a = 5,
-                       m = 1,
-                       d = 1,
-                       seasonal = False,
-                       start_P = 0,
-                       D = None,
-                       trace = True,
-                       error_action = 'ignore',
-                       suppress_warnings= True,
-                       stepwise = True)
-        
-    capacity = model.predict(1)
-    return capacity[0]
+
         
