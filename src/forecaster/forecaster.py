@@ -20,7 +20,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
     :return: JSON encoding of schedule object with capacities assigned
     """
     if course_enrolment is None and program_enrolment is None and schedule is None:
-        return '{"status":"OK"}'
+        return 'OK'
 
     # Preprocessing steps, generate internal data series
     low_bound, high_bound = compute_bounds(program_enrolment)
