@@ -151,6 +151,12 @@ class Professor:
         self.preferredCourseDaySpreads    = preferredCourseDaySpreads
 
 
+class TimeSlot:
+    def __init__(self, dayOfWeek: str, timeRange: tuple):
+        self.dayOfWeek = dayOfWeek
+        self.timeRange = timeRange
+
+
 class Course:
     def __init__(self, code: str, title: str, pengRequired: dict, yearRequired: int):
         self.code         = code
@@ -160,7 +166,7 @@ class Course:
 
 
 class CourseSection:
-    def __init__(self, professor: str, capacity: str, timeSlots: dict):
+    def __init__(self, professor: Professor, capacity: int, timeSlots: list):
         self.professor = professor
         self.capacity  = capacity
         self.timeSlots = timeSlots
@@ -170,6 +176,13 @@ class CourseOffering:
     def __init__(self, course: Course, courseSections: list):
         self.course         = course
         self.courseSections = courseSections
+
+
+class Schedule:
+    def __init__(self, fall: list, spring: list, summer: list,):
+        self.fall   = fall
+        self.spring = spring
+        self.summer = summer
 
 
 if __name__ == '__main__':
@@ -188,5 +201,25 @@ if __name__ == '__main__':
     prof_day_spread    = [CourseDaySpreadEnum.TWF.name, CourseDaySpreadEnum.MTh.name]
     test_professor = Professor(prof_id, prof_name, prof_is_peng, prof_faculty_type, prof_course_pref, prof_obligations,
                                prof_pref_times, prof_pref_num, prof_pref_no_teach, prof_day_spread)
-    result = jsonpickle.encode(test_professor, unpicklable=False)
-    print(result)
+    course_code     = "CSC225"
+    course_title    = "Algorithms and Data Structure 1"
+    course_peng_req = {"fall": True, "spring": True, "Summer": False}
+    course_year_req = 2
+    test_course          = Course(course_code, course_title, course_peng_req, course_year_req)
+
+    course_section_time_slotM = TimeSlot(DayOfTheWeekEnum.MONDAY.name, time )
+    course_section_time_slotT = TimeSlot(DayOfTheWeekEnum.THURSDAY.name, time )
+    course_section_prof       = test_professor
+    course_section_capacity   = 500
+    course_section_time_slot  = [course_section_time_slotM, course_section_time_slotT ]
+    test_course_section       = CourseSection(course_section_prof, course_section_capacity, course_section_time_slot)
+
+    test_course_offering = CourseOffering(test_course, [test_course_section])
+
+    test_schedule = Schedule([test_course_offering], [test_course_offering], [test_course_offering])
+    result = jsonpickle.encode(test_schedule, unpicklable=False)
+
+    json_obj = json.loads(result)
+
+    with open("../data/testSchedule.json", "w") as f:
+        json.dump(json_obj, f)
