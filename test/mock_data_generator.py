@@ -1,4 +1,6 @@
 import json
+from enum import Enum
+import jsonpickle
 
 
 def populate_term(courses: list, term: list, min_sections: int, max_sections: int):
@@ -77,3 +79,109 @@ def generate_course_enrollment(fall_courses: list, spring_courses: list, summer_
                     course_enrollment\
                     .append(generate_historial_offering(course, historical_term, 1))
     return course_enrollment
+
+
+def generate_randomized_mock_schedule(num_courses: int):
+
+    return "{}"
+
+
+class FacultyTypeEnum(Enum):
+    RESEARCH = 1
+    TEACHING = 2
+
+
+class SemesterEnum(Enum):
+    FALL   = 1
+    SPRING = 2
+    SUMMER = 3
+
+
+class DayOfTheWeekEnum(Enum):
+    MONDAY    = 1
+    TUESDAY   = 2
+    WEDNESDAY = 3
+    THURSDAY  = 4
+    FRIDAY    = 5
+
+
+class CourseDaySpreadEnum(Enum):
+    TWF = 1
+    MTh = 2
+    M   = 3
+    T   = 4
+    W   = 5
+    Th  = 6
+    F   = 7
+
+
+class CoursePreference:
+    def __init__(self, courseCode: str, enthusiasmScore: int):
+        self.courseCode        = courseCode
+        self.enthusiasmScore   = enthusiasmScore
+
+
+class DayTimes:
+    def __init__(self, monday: tuple, tuesday: tuple, wednesday: tuple, thursday: tuple, friday: tuple):
+        self.monday    = monday
+        self.tuesday   = tuesday
+        self.wednesday = wednesday
+        self.thursday  = thursday
+        self.friday    = friday
+
+
+class Professor:
+    def __init__(self, id: str, name: str, isPeng: bool, facultyType: str, coursePreferences: list,
+                 teachingObligations: int, preferredTimes: dict, preferredCoursesPerSemester: dict,
+                 preferredNonTeachingSemester : str, preferredCourseDaySpreads: []):
+        self.id                           = id
+        self.name                         = name
+        self.isPeng                       = isPeng
+        self.facultyType                  = facultyType
+        self.coursePreferences            = coursePreferences
+        self.teachingObligations          = teachingObligations
+        self.preferredTimes               = preferredTimes
+        self.preferredCoursesPerSemester  = preferredCoursesPerSemester
+        self.preferredNonTeachingSemester = preferredNonTeachingSemester
+        self.preferredCourseDaySpreads    = preferredCourseDaySpreads
+
+
+class Course:
+    def __init__(self, code: str, title: str, pengRequired: dict, yearRequired: int):
+        self.code         = code
+        self.title        = title
+        self.pengRequired = pengRequired
+        self.yearRequired = yearRequired
+
+
+class CourseSection:
+    def __init__(self, professor: str, capacity: str, timeSlots: dict):
+        self.professor = professor
+        self.capacity  = capacity
+        self.timeSlots = timeSlots
+
+
+class CourseOffering:
+    def __init__(self, course: Course, courseSections: list):
+        self.course         = course
+        self.courseSections = courseSections
+
+
+if __name__ == '__main__':
+    time          = ("12:00", "13:20")
+    day_times     = DayTimes(time, time, time, time, time)
+
+    prof_id            = "1"
+    prof_name          = "Bill Bird"
+    prof_is_peng       = False
+    prof_faculty_type  = FacultyTypeEnum.TEACHING.name
+    prof_course_pref   = [CoursePreference("CSC225", 195)]
+    prof_obligations   = 5
+    prof_pref_times    = {"fall": day_times, "spring": day_times, "summer": day_times}
+    prof_pref_num      = {"fall": 1, "spring": 2, "summer": 3}
+    prof_pref_no_teach = SemesterEnum.FALL.name
+    prof_day_spread    = [CourseDaySpreadEnum.TWF.name, CourseDaySpreadEnum.MTh.name]
+    test_professor = Professor(prof_id, prof_name, prof_is_peng, prof_faculty_type, prof_course_pref, prof_obligations,
+                               prof_pref_times, prof_pref_num, prof_pref_no_teach, prof_day_spread)
+    result = jsonpickle.encode(test_professor, unpicklable=False)
+    print(result)
