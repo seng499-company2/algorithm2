@@ -173,9 +173,9 @@ class CourseSection:
 
 
 class CourseOffering:
-    def __init__(self, course: Course, courseSections: list):
-        self.course         = course
-        self.courseSections = courseSections
+    def __init__(self, course: Course, sections: list):
+        self.course   = course
+        self.sections = sections
 
 
 class Schedule:
