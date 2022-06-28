@@ -81,6 +81,11 @@ def generate_course_enrollment(fall_courses: list, spring_courses: list, summer_
     return course_enrollment
 
 
+def generate_deterministic_mock_schedule(num_courses: int):
+
+    return "{}"
+
+
 def generate_randomized_mock_schedule(num_courses: int):
 
     return "{}"
