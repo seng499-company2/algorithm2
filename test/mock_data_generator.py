@@ -154,7 +154,7 @@ def populate_course_offering(courses: list):
     return course_offering
 
 
-def populate_term(courses: list):
+def populate_schedule_term(courses: list):
     course_offerings = []
     for course in courses:
         course_sections = []
@@ -169,9 +169,9 @@ def historic_year_to_mock_schedule(year: int):
     with open("../data/real/historicSengProgramCourseData.json", "r") as f:
         json_obj = json.load(f)
     fall_courses, spring_courses, summer_courses = extract_course_year(json_obj, year)
-    schedule_fall   = populate_term(fall_courses)
-    schedule_spring = populate_term(spring_courses)
-    schedule_summer = populate_term(summer_courses)
+    schedule_fall   = populate_schedule_term(fall_courses)
+    schedule_spring = populate_schedule_term(spring_courses)
+    schedule_summer = populate_schedule_term(summer_courses)
 
     schedule = Schedule(schedule_fall, schedule_spring, schedule_summer)
     return schedule
