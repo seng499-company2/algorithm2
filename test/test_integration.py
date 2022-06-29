@@ -3,7 +3,7 @@ import json
 from forecaster import constants
 from forecaster import determination
 from forecaster import guarantor
-from forecaster import hueristic
+from forecaster import heuristic
 from forecaster import postprocessor
 from forecaster import preprocessor
 from forecaster import statistical
