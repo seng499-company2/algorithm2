@@ -81,6 +81,100 @@ def generate_course_enrollment(fall_courses: list, spring_courses: list, summer_
     return course_enrollment
 
 
+class FacultyTypeEnum(Enum):
+    RESEARCH = 1
+    TEACHING = 2
+
+
+class SemesterEnum(Enum):
+    FALL   = 1
+    SPRING = 2
+    SUMMER = 3
+
+
+class DayOfTheWeekEnum(Enum):
+    MONDAY    = 1
+    TUESDAY   = 2
+    WEDNESDAY = 3
+    THURSDAY  = 4
+    FRIDAY    = 5
+
+
+class CourseDaySpreadEnum(Enum):
+    TWF = 1
+    MTh = 2
+    M   = 3
+    T   = 4
+    W   = 5
+    Th  = 6
+    F   = 7
+
+
+class CoursePreference:
+    def __init__(self, courseCode: str, enthusiasmScore: int):
+        self.courseCode        = courseCode
+        self.enthusiasmScore   = enthusiasmScore
+
+
+class DayTimes:
+    def __init__(self, monday: tuple, tuesday: tuple, wednesday: tuple, thursday: tuple, friday: tuple):
+        self.monday    = monday
+        self.tuesday   = tuesday
+        self.wednesday = wednesday
+        self.thursday  = thursday
+        self.friday    = friday
+
+
+class Professor:
+    def __init__(self, id: str, name: str, isPeng: bool, facultyType: str, coursePreferences: list,
+                 teachingObligations: int, preferredTimes: dict, preferredCoursesPerSemester: dict,
+                 preferredNonTeachingSemester : str, preferredCourseDaySpreads: []):
+        self.id                           = id
+        self.name                         = name
+        self.isPeng                       = isPeng
+        self.facultyType                  = facultyType
+        self.coursePreferences            = coursePreferences
+        self.teachingObligations          = teachingObligations
+        self.preferredTimes               = preferredTimes
+        self.preferredCoursesPerSemester  = preferredCoursesPerSemester
+        self.preferredNonTeachingSemester = preferredNonTeachingSemester
+        self.preferredCourseDaySpreads    = preferredCourseDaySpreads
+
+
+class TimeSlot:
+    def __init__(self, dayOfWeek: str, timeRange: tuple):
+        self.dayOfWeek = dayOfWeek
+        self.timeRange = timeRange
+
+
+class Course:
+    def __init__(self, code: str, title: str, pengRequired: dict, yearRequired: int):
+        self.code         = code
+        self.title        = title
+        self.pengRequired = pengRequired
+        self.yearRequired = yearRequired
+
+
+class CourseSection:
+    def __init__(self, professor: Professor, capacity: int, timeSlots: list):
+        self.professor = professor
+        self.capacity  = capacity
+        self.timeSlots = timeSlots
+
+
+class CourseOffering:
+    def __init__(self, course: Course, sections: list):
+        self.course   = course
+        self.sections = sections
+
+
+class Schedule:
+    def __init__(self, fall: list, spring: list, summer: list,):
+        self.fall   = fall
+        self.spring = spring
+        self.summer = summer
+
+
 def generate_deterministic_mock_schedule(num_courses: int):
 
     return "{}"
@@ -177,107 +271,7 @@ def historic_year_to_mock_schedule(year: int):
     return schedule
 
 
-class FacultyTypeEnum(Enum):
-    RESEARCH = 1
-    TEACHING = 2
-
-
-class SemesterEnum(Enum):
-    FALL   = 1
-    SPRING = 2
-    SUMMER = 3
-
-
-class DayOfTheWeekEnum(Enum):
-    MONDAY    = 1
-    TUESDAY   = 2
-    WEDNESDAY = 3
-    THURSDAY  = 4
-    FRIDAY    = 5
-
-
-class CourseDaySpreadEnum(Enum):
-    TWF = 1
-    MTh = 2
-    M   = 3
-    T   = 4
-    W   = 5
-    Th  = 6
-    F   = 7
-
-
-class CoursePreference:
-    def __init__(self, courseCode: str, enthusiasmScore: int):
-        self.courseCode        = courseCode
-        self.enthusiasmScore   = enthusiasmScore
-
-
-class DayTimes:
-    def __init__(self, monday: tuple, tuesday: tuple, wednesday: tuple, thursday: tuple, friday: tuple):
-        self.monday    = monday
-        self.tuesday   = tuesday
-        self.wednesday = wednesday
-        self.thursday  = thursday
-        self.friday    = friday
-
-
-class Professor:
-    def __init__(self, id: str, name: str, isPeng: bool, facultyType: str, coursePreferences: list,
-                 teachingObligations: int, preferredTimes: dict, preferredCoursesPerSemester: dict,
-                 preferredNonTeachingSemester : str, preferredCourseDaySpreads: []):
-        self.id                           = id
-        self.name                         = name
-        self.isPeng                       = isPeng
-        self.facultyType                  = facultyType
-        self.coursePreferences            = coursePreferences
-        self.teachingObligations          = teachingObligations
-        self.preferredTimes               = preferredTimes
-        self.preferredCoursesPerSemester  = preferredCoursesPerSemester
-        self.preferredNonTeachingSemester = preferredNonTeachingSemester
-        self.preferredCourseDaySpreads    = preferredCourseDaySpreads
-
-
-class TimeSlot:
-    def __init__(self, dayOfWeek: str, timeRange: tuple):
-        self.dayOfWeek = dayOfWeek
-        self.timeRange = timeRange
-
-
-class Course:
-    def __init__(self, code: str, title: str, pengRequired: dict, yearRequired: int):
-        self.code         = code
-        self.title        = title
-        self.pengRequired = pengRequired
-        self.yearRequired = yearRequired
-
-
-class CourseSection:
-    def __init__(self, professor: Professor, capacity: int, timeSlots: list):
-        self.professor = professor
-        self.capacity  = capacity
-        self.timeSlots = timeSlots
-
-
-class CourseOffering:
-    def __init__(self, course: Course, sections: list):
-        self.course   = course
-        self.sections = sections
-
-
-class Schedule:
-    def __init__(self, fall: list, spring: list, summer: list,):
-        self.fall   = fall
-        self.spring = spring
-        self.summer = summer
-
-def debuging_schedule():
-    historicTestSchedule = historic_year_to_mock_schedule(2021)
-    pickledHistoric = jsonpickle.encode(historicTestSchedule, unpicklable=False)
-    json_obj = json.loads(pickledHistoric)
-    with open("../data/testHistoricSchedule.json", "w") as f:
-        json.dump(json_obj, f)
-
-
+def create_mock_schedule():
     time          = ("12:00", "13:20")
     day_times     = DayTimes(time, time, time, time, time)
 
@@ -323,5 +317,5 @@ def debuging_schedule():
 
 
 #if __name__ == '__main__':
-    #debuging_schedule()
+    #create_mock_schedule()
 
