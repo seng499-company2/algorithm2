@@ -270,8 +270,7 @@ class Schedule:
         self.spring = spring
         self.summer = summer
 
-
-if __name__ == '__main__':
+def debuging_schedule():
     historicTestSchedule = historic_year_to_mock_schedule(2021)
     pickledHistoric = jsonpickle.encode(historicTestSchedule, unpicklable=False)
     json_obj = json.loads(pickledHistoric)
@@ -321,3 +320,8 @@ if __name__ == '__main__':
         object_json = json.load(f)
 
     print(object_json[0])
+
+    
+#if __name__ == '__main__':
+    #debuging_schedule()
+
