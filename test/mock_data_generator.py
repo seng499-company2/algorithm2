@@ -91,6 +91,92 @@ def generate_randomized_mock_schedule(num_courses: int):
     return "{}"
 
 
+def extract_course_year(historic_data: dict, year: int):
+    fall_courses   = []
+    spring_courses = []
+    summer_courses = []
+    for course in historic_data:
+        if '09' in course['term'] and str(year) in course['term']:
+            fall_courses.append(course)
+        if '01' in course['term'] and str(year+1) in course['term']:
+            spring_courses.append(course)
+        if '05' in course['term'] and str(year+1) in course['term']:
+            summer_courses.append(course)
+    return fall_courses, spring_courses, summer_courses
+
+
+def populate_course_offering(courses: list):
+    course_sections = []
+    test_course     = ""
+
+    for course in courses:
+        time          = ("12:00", "13:20")
+        day_times     = DayTimes(time, time, time, time, time)
+
+        prof_id            = "1"
+        prof_name          = course["faculty"][0]["displayName"]
+        prof_is_peng       = False
+        prof_faculty_type  = FacultyTypeEnum.TEACHING.name
+        prof_course_pref   = [CoursePreference("CSC225", 195)]
+        prof_obligations   = 5
+        prof_pref_times    = {"fall": day_times, "spring": day_times, "summer": day_times}
+        prof_pref_num      = {"fall": 1, "spring": 2, "summer": 3}
+        prof_pref_no_teach = SemesterEnum.FALL.name
+        prof_day_spread    = [CourseDaySpreadEnum.TWF.name, CourseDaySpreadEnum.MTh.name]
+        professor          = Professor(prof_id, prof_name, prof_is_peng, prof_faculty_type, prof_course_pref, prof_obligations,
+                                   prof_pref_times, prof_pref_num, prof_pref_no_teach, prof_day_spread)
+
+        course_code     = course["subjectCourse"]
+        course_title    = course["courseTitle"]
+        course_peng_req = {"fall": True, "spring": True, "Summer": False}
+        course_year_req = course["courseNumber"][0]
+        test_course          = Course(course_code, course_title, course_peng_req, course_year_req)
+
+        course_section_time_slot  = []
+        lecture_time = (course['meetingsFaculty'][0]['meetingTime']['beginTime'], course['meetingsFaculty'][0]['meetingTime']['endTime'])
+        if course["meetingsFaculty"][0]['meetingTime']["monday"]:
+            course_section_time_slot.append(TimeSlot(DayOfTheWeekEnum.MONDAY.name, lecture_time))
+        if course["meetingsFaculty"][0]['meetingTime']["tuesday"]:
+            course_section_time_slot.append(TimeSlot(DayOfTheWeekEnum.TUESDAY.name, lecture_time))
+        if course["meetingsFaculty"][0]['meetingTime']["wednesday"]:
+            course_section_time_slot.append(TimeSlot(DayOfTheWeekEnum.WEDNESDAY.name, lecture_time))
+        if course["meetingsFaculty"][0]['meetingTime']["thursday"]:
+            course_section_time_slot.append(TimeSlot(DayOfTheWeekEnum.THURSDAY.name, lecture_time))
+        if course["meetingsFaculty"][0]['meetingTime']["friday"]:
+            course_section_time_slot.append(TimeSlot(DayOfTheWeekEnum.FRIDAY.name, lecture_time))
+
+        course_section_prof       = professor
+        course_section_capacity   = course["maximumEnrollment"]
+        test_course_section       = CourseSection(course_section_prof, course_section_capacity, course_section_time_slot)
+        course_sections.append(test_course_section)
+
+    course_offering = CourseOffering(test_course, course_sections)
+    return course_offering
+
+
+def populate_term(courses: list):
+    course_offerings = []
+    for course in courses:
+        course_sections = []
+        for course_section in courses:
+            if course_section["subjectCourse"] == course["subjectCourse"]:
+                course_sections.append(course_section)
+        course_offerings.append(populate_course_offering(course_sections))
+    return course_offerings
+
+
+def historic_year_to_mock_schedule(year: int):
+    with open("../data/real/historicSengProgramCourseData.json", "r") as f:
+        json_obj = json.load(f)
+    fall_courses, spring_courses, summer_courses = extract_course_year(json_obj, year)
+    schedule_fall   = populate_term(fall_courses)
+    schedule_spring = populate_term(spring_courses)
+    schedule_summer = populate_term(summer_courses)
+
+    schedule = Schedule(schedule_fall, schedule_spring, schedule_summer)
+    return schedule
+
+
 class FacultyTypeEnum(Enum):
     RESEARCH = 1
     TEACHING = 2
@@ -186,6 +272,13 @@ class Schedule:
 
 
 if __name__ == '__main__':
+    historicTestSchedule = historic_year_to_mock_schedule(2021)
+    pickledHistoric = jsonpickle.encode(historicTestSchedule, unpicklable=False)
+    json_obj = json.loads(pickledHistoric)
+    with open("../data/testHistoricSchedule.json", "w") as f:
+        json.dump(json_obj, f)
+
+
     time          = ("12:00", "13:20")
     day_times     = DayTimes(time, time, time, time, time)
 
@@ -223,3 +316,8 @@ if __name__ == '__main__':
 
     with open("../data/testSchedule.json", "w") as f:
         json.dump(json_obj, f)
+
+    with open("../data/real/historicSengProgramCourseData.json", "r") as f:
+        object_json = json.load(f)
+
+    print(object_json[0])
