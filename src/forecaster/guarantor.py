@@ -7,6 +7,10 @@
 
 from enum import Enum
 
+# =============================================================================
+# Module Private Variables and Classes
+# =============================================================================
+
 
 class Status(Enum):
     GOOD = 1
@@ -14,6 +18,87 @@ class Status(Enum):
     MISSING_ASSIGMENT = 3
     BOUNDS_ERROR = 4
     FATAL_ERROR = 5
+
+
+# =============================================================================
+# Private Module Helper Functions
+# =============================================================================
+
+
+def scale_capacities_down(internal_series: dict, high_bound: int, current: int) -> None:
+    """ In the case that global seat assignment is outside of bounds, scale
+    course capacity assignments until a bound is reached.
+
+    :param current: The current number of assigned seats
+    :param high_bound: global maximum number of seats
+    :param internal_series: internal data series representing course offerings
+    :return: None, internal_series is modified in place
+    """
+
+    # Overflow is the number of seats that need to be removed
+    overflow = current - high_bound
+    capacities = []
+
+    # Create a list of course offerings sorted in descending order by capacity
+    for offering in internal_series.keys():
+        capacities.append((offering, internal_series[offering]))
+
+    sorted_capacities = sorted(capacities, key=lambda x: x[1]["capacity"], reverse=True)
+
+    # Remove seats from the highest capacity courses first, then lower capacity seats
+    # Until the overflow is zero
+    i = 0
+    while overflow > 0:
+        internal_series[sorted_capacities[i][0]]["capacity"] -= 1
+        overflow -= 1
+        i += 1
+        i %= len(sorted_capacities)
+
+
+def scale_capacities_up(internal_series: dict, low_bound: int, current: int) -> None:
+    """ In the case that global seat assignment is outside of bounds, scale
+    course capacity assignments until a bound is reached.
+
+    :param current: The current number of assigned seats
+    :param low_bound: global minimum number of seats
+    :param internal_series: internal data series representing course offerings
+    :return: None, internal_series is modified in place
+    """
+
+    # Underflow is the number of additional seats which need to be assigned
+    underflow = low_bound - current
+    capacities = []
+
+    # Create a list of offerings in ascending order of capacity
+    for offering in internal_series.keys():
+        capacities.append((offering, internal_series[offering]))
+
+    sorted_capacities = sorted(capacities, key=lambda x: x[1]["capacity"])
+
+    # Assign seats to the lowest capacity courses first, until the
+    # underflow is zero
+    i = 0
+    while underflow > 0:
+        internal_series[sorted_capacities[i][0]]["capacity"] += 1
+        underflow -= 1
+        i += 1
+        i %= len(sorted_capacities)
+
+
+def check_bounds(internal_series: dict, low: int, high: int) -> bool:
+    total_seats = 0
+    for course_offering in internal_series.keys():
+        total_seats += internal_series[course_offering]["capacity"]
+
+    if total_seats > high or total_seats < low:
+        return False
+
+    return True
+
+
+# =============================================================================
+# API Functions
+# =============================================================================
 
 
 def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, high_bound: int) -> Status:
@@ -27,21 +112,43 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
     :return: status code representing result of verification
     """
 
+    total_seats = 0
+    semester_courses = {
+        "fall": [],
+        "spring": [],
+        "summer": []
+        }
+
+    for course_offering in internal_series.keys():
+        if course_offering.endswith("F"):
+            semester_courses["fall"].append(course_offering.split('-')[0])
+        elif course_offering.endswith("SP"):
+            semester_courses["spring"].append(course_offering.split('-')[0])
+        elif course_offering.endswith("SU"):
+            semester_courses["summer"].append(course_offering.split('-')[0])
+        capacity = internal_series[course_offering]["capacity"]
+        if capacity <= 0:
+            return Status.MISSING_ASSIGMENT
+        total_seats += capacity
+
+    if total_seats > high_bound:
+        scale_capacities_down(internal_series, high_bound, total_seats)
+    elif total_seats < low_bound:
+        scale_capacities_up(internal_series, low_bound, total_seats)
+
+    if not check_bounds(internal_series, low_bound, high_bound):
+        return Status.BOUNDS_ERROR
+
+    for semester in ["fall", "spring", "summer"]:
+        number_courses = 0
+        for course in schedule[semester]:
+            number_courses += 1
+            if course["course"]["code"] not in semester_courses[semester]:
+                return Status.MISSING_CLASS
+        if number_courses != len(semester_courses[semester]):
+            return Status.MISSING_CLASS
 
     return Status.GOOD
-
-
-def scale_capacities(internal_series: dict, low_bound: int, high_bound: int) -> None:
-    """ In the case that global seat assignment is outside of bounds, scale
-    course capacity assignments until a bound is reached.
-
-    :param low_bound: global minimum number of seats
-    :param high_bound: global maximum number of seats
-    :param internal_series: internal data series representing course offerings
-    :return: None, internal_series is modified in place
-    """
-
-    pass
 
 
 def verify_final(new_schedule: dict, old_schedule: dict) -> Status:
@@ -52,5 +159,12 @@ def verify_final(new_schedule: dict, old_schedule: dict) -> Status:
     :param old_schedule: schedule provided by backend caller
     :return: status code representing result of verification
     """
+
+    for semester in ["fall", "spring", "summer"]:
+        for course in old_schedule[semester]:
+            if course not in new_schedule[semester]:
+                return Status.MISSING_CLASS
+        if len(new_schedule[semester]) != len(old_schedule[semester]):
+            return Status.MISSING_ASSIGMENT
 
     return Status.GOOD
