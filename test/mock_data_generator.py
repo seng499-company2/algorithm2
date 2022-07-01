@@ -189,12 +189,12 @@ def extract_course_year(historic_data: dict, year: int):
     fall_courses   = []
     spring_courses = []
     summer_courses = []
-    for course in historic_data:
-        if '09' in course['term'] and str(year) in course['term']:
+    for course in historic_data: 
+        if course['term'].endswith('09') and str(year) in course['term']:
             fall_courses.append(course)
-        if '01' in course['term'] and str(year+1) in course['term']:
+        if course['term'].endswith('01') and str(year+1) in course['term']:
             spring_courses.append(course)
-        if '05' in course['term'] and str(year+1) in course['term']:
+        if course['term'].endswith('05') and str(year+1) in course['term']:
             summer_courses.append(course)
     return fall_courses, spring_courses, summer_courses
 
