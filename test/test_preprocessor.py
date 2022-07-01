@@ -8,7 +8,7 @@ from mock_data_generator import generate_course_enrollment
 def test_compute_bounds():
     with open("../data/programEnrollmentData.json", "r") as fb:
         x = json.load(fb)
-    low_bound, high_bound = preprocessor.compute_bounds(x[0])
+    low_bound, high_bound = preprocessor.compute_bounds(x)
     assert low_bound == 352
     assert high_bound == 2112
 

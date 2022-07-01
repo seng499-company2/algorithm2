@@ -34,7 +34,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
     # Verify that internal_series assignment was valid
     status = verify_intermediate(internal_series, schedule, low_bound, high_bound)
     if status is not Status.GOOD:
-        raise Exception("Algorithm 2 failed to produce an output.")
+        raise Exception(f"Algorithm 2 failed to produce an output: {status}")
 
     # Translate internal_series into schedule object
     output_schedule = post_process(internal_series, schedule)
@@ -42,7 +42,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
     # Verify final schedule object
     status = verify_final(output_schedule, schedule)
     if status is not Status.GOOD:
-        raise Exception("Algorithm 2 failed to produce an output.")
+        raise Exception(f"Algorithm 2 failed to produce an output: {status}")
 
     # Return schedule to caller
     return json.dumps(output_schedule)
