@@ -4,6 +4,8 @@
 # This module preprocesses data for use in the forecaster
 import math
 
+from traitlets import Tuple
+
 # Module Private Variables and Classes
 PROGRAM_GROWTH = 1.0855  # TODO: Calculate this dynamically based on program enrolment
 MIN_COURSES = 1
@@ -78,7 +80,7 @@ def get_capacity(course_code: str, course_offerings: list) -> int:
 
 
 
-def compute_bounds(program_enrolment: dict) -> (int, int):
+def compute_bounds(program_enrolment: dict) -> tuple[int, int]:
     """ This function computes the upper and lower bound on the global
     seat allocation.
 
@@ -94,8 +96,8 @@ def compute_bounds(program_enrolment: dict) -> (int, int):
     #  in this function, rather than hard coding 8.55%
     current_enrolment = math.ceil(prev_enrollment * PROGRAM_GROWTH)
 
-    lower_bound = MIN_COURSES * math.ceil((current_enrolment * RATIO_ACADEMIC))
-    upper_bound = MAX_COURSES * math.ceil((current_enrolment * RATIO_ACADEMIC))
+    lower_bound = MIN_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC)
+    upper_bound = MAX_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC)
 
     return lower_bound, upper_bound
 
