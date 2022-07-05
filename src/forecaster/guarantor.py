@@ -17,7 +17,7 @@ class Status(Enum):
     MISSING_CLASS = 2
     MISSING_ASSIGMENT = 3
     BOUNDS_ERROR = 4
-    FATAL_ERROR = 5
+    MALFORMED_OUTPUT = 5
 
 
 # =============================================================================
@@ -96,6 +96,26 @@ def check_bounds(internal_series: dict, low: int, high: int) -> bool:
     return True
 
 
+def get_capacity(course):
+    sum = 0
+    for section in course["sections"]:
+        sum += int(section["capacity"])
+    return sum
+
+
+def compare_offerings(course_a, course_b):
+    if course_a["course"]["code"] != course_b["course"]["code"]:
+        return False
+    if course_a["course"]["title"] != course_b["course"]["title"]:
+        return False
+    if len(course_a["sections"]) != len(course_b["sections"]):
+        return False
+    for section_a, section_b in zip(course_a["sections"], course_b["sections"]):
+        if section_a["professor"] != section_b["professor"]:
+            return False
+    return True
+
+
 # =============================================================================
 # API Functions
 # =============================================================================
@@ -146,7 +166,7 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
             if course["course"]["code"] not in semester_courses[semester]:
                 return Status.MISSING_CLASS
         if number_courses != len(semester_courses[semester]):
-            return Status.MISSING_CLASS
+            return Status.MALFORMED_OUTPUT
 
     return Status.GOOD
 
@@ -161,10 +181,12 @@ def verify_final(new_schedule: dict, old_schedule: dict) -> Status:
     """
 
     for semester in ["fall", "spring", "summer"]:
-        for course in old_schedule[semester]:
-            if course not in new_schedule[semester]:
+        for course_a, course_b in zip(old_schedule[semester], new_schedule[semester]):
+            if not compare_offerings(course_a, course_b):
                 return Status.MISSING_CLASS
+            if get_capacity(course_b) <=0:
+                return Status.MISSING_ASSIGMENT
         if len(new_schedule[semester]) != len(old_schedule[semester]):
-            return Status.MISSING_ASSIGMENT
+            return Status.MALFORMED_OUTPUT
 
     return Status.GOOD
