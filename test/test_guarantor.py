@@ -118,7 +118,7 @@ def test_verify_final_good():
                 "sections": [
                     {
                         "professor": "",
-                        "capacity": "0"
+                        "capacity": "25"
                     }
                 ]
             }
@@ -132,7 +132,7 @@ def test_verify_final_good():
                 "sections": [
                     {
                         "professor": "",
-                        "capacity": "0"
+                        "capacity": "30"
                     }
                 ]
             }
@@ -146,7 +146,7 @@ def test_verify_final_good():
                 "sections": [
                     {
                         "professor": "",
-                        "capacity": "0"
+                        "capacity": "50"
                     }
                 ]
             }
