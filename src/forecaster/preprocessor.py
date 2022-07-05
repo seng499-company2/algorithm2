@@ -79,7 +79,7 @@ def get_capacity(course_code: str, course_offerings: list) -> int:
 
 
 
-def compute_bounds(program_enrolment: dict) -> tuple[int, int]:
+def compute_bounds(program_enrolment: dict):
     """ This function computes the upper and lower bound on the global
     seat allocation.
 
