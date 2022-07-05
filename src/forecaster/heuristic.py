@@ -38,7 +38,7 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
 
     # Assign capacities to courses which have a data point
     for course in internal_series.keys():
-        if internal_series[course]["capacity"] == 0:
+        if internal_series[course]["capacity"] <= 0:
             for i, enrolment in enumerate(reversed(internal_series[course]["data"])):
                 if enrolment != 0:
                     internal_series[course]["capacity"] = math.floor(enrolment * math.pow(PROGRAM_GROWTH, (i+1)))
@@ -55,5 +55,5 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
     if unassigned_courses > 0:
         seats_per_course = math.floor(remaining_seats / unassigned_courses)
         for course in internal_series.keys():
-            if internal_series[course]["capacity"] == 0:
+            if internal_series[course]["capacity"] <= 0:
                 internal_series[course]["capacity"] = seats_per_course

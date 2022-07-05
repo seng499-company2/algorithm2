@@ -53,6 +53,8 @@ def determine_approach(internal_series: dict, force_flag: int = 2) -> None:
         if course['data'] is None:
             continue
 
+        if course['data'] is None:
+            continue
         # The most recent data is too old
         if not is_year_recent_enough(course['data']):
             continue
