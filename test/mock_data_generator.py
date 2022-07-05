@@ -174,7 +174,7 @@ def generate_randomized_mock_schedule(num_courses: int):
 
     return "{}"
 
-
+CAPFLAG = True
 def extract_course_year(historic_data: dict, year: int):
     fall_courses   = []
     spring_courses = []
@@ -221,7 +221,10 @@ def populate_course_offering(courses: list):
             course_section_time_slot.append(TimeSlot(DayOfTheWeekEnum.FRIDAY.name, lecture_time))
 
         course_section_prof       = professor
-        course_section_capacity   = course["maximumEnrollment"]
+        if(CAPFLAG):
+            course_section_capacity   = course["maximumEnrollment"]
+        else:
+            course_section_capacity = 0
         test_course_section       = CourseSection(course_section_prof, course_section_capacity, course_section_time_slot)
         course_sections.append(test_course_section)
 
@@ -240,7 +243,9 @@ def populate_schedule_term(courses: list):
     return course_offerings
 
 
-def historic_year_to_mock_schedule(year: int):
+def historic_year_to_mock_schedule(year: int, includeCapFlag: bool = True):
+    global CAPFLAG
+    CAPFLAG = includeCapFlag
     with open("../data/real/historicSengProgramCourseData.json", "r") as f:
         json_obj = json.load(f)
     fall_courses, spring_courses, summer_courses = extract_course_year(json_obj, year)
@@ -289,5 +294,11 @@ def create_mock_schedule():
 
 
 if __name__ == '__main__':
-    historic_year_to_mock_schedule(2021)
+    test_schedule= historic_year_to_mock_schedule(2021, True)
+    result = jsonpickle.encode(test_schedule, unpicklable=False)
+
+    json_obj = json.loads(result)
+
+    with open("../data/testSchedule.json", "w") as f:
+        json.dump(json_obj, f)
 
