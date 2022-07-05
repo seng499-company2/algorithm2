@@ -126,19 +126,9 @@ class DayTimes:
 
 
 class Professor:
-    def __init__(self, id: str, name: str, isPeng: bool, facultyType: str, coursePreferences: list,
-                 teachingObligations: int, preferredTimes: dict, preferredCoursesPerSemester: dict,
-                 preferredNonTeachingSemester : str, preferredCourseDaySpreads: []):
-        self.id                           = id
-        self.name                         = name
-        self.isPeng                       = isPeng
-        self.facultyType                  = facultyType
-        self.coursePreferences            = coursePreferences
-        self.teachingObligations          = teachingObligations
-        self.preferredTimes               = preferredTimes
-        self.preferredCoursesPerSemester  = preferredCoursesPerSemester
-        self.preferredNonTeachingSemester = preferredNonTeachingSemester
-        self.preferredCourseDaySpreads    = preferredCourseDaySpreads
+    def __init__(self, id: str, name: str):
+        self.id        = id
+        self.name      = name
 
 
 class TimeSlot:
@@ -207,18 +197,9 @@ def populate_course_offering(courses: list):
         time          = ("12:00", "13:20")
         day_times     = DayTimes(time, time, time, time, time)
 
-        prof_id            = "1"
-        prof_name          = course["faculty"][0]["displayName"]
-        prof_is_peng       = False
-        prof_faculty_type  = FacultyTypeEnum.TEACHING.name
-        prof_course_pref   = [CoursePreference("CSC225", 195)]
-        prof_obligations   = 5
-        prof_pref_times    = {"fall": day_times, "spring": day_times, "summer": day_times}
-        prof_pref_num      = {"fall": 1, "spring": 2, "summer": 3}
-        prof_pref_no_teach = SemesterEnum.FALL.name
-        prof_day_spread    = [CourseDaySpreadEnum.TWF.name, CourseDaySpreadEnum.MTh.name]
-        professor          = Professor(prof_id, prof_name, prof_is_peng, prof_faculty_type, prof_course_pref, prof_obligations,
-                                   prof_pref_times, prof_pref_num, prof_pref_no_teach, prof_day_spread)
+        prof_id         = "1"
+        prof_name       = course["faculty"][0]["displayName"]
+        professor       = Professor(prof_id, prof_name)
 
         course_code     = course["subjectCourse"]
         course_title    = course["courseTitle"]
@@ -275,18 +256,9 @@ def create_mock_schedule():
     time          = ("12:00", "13:20")
     day_times     = DayTimes(time, time, time, time, time)
 
-    prof_id            = "1"
-    prof_name          = "Bill Bird"
-    prof_is_peng       = False
-    prof_faculty_type  = FacultyTypeEnum.TEACHING.name
-    prof_course_pref   = [CoursePreference("CSC225", 195)]
-    prof_obligations   = 5
-    prof_pref_times    = {"fall": day_times, "spring": day_times, "summer": day_times}
-    prof_pref_num      = {"fall": 1, "spring": 2, "summer": 3}
-    prof_pref_no_teach = SemesterEnum.FALL.name
-    prof_day_spread    = [CourseDaySpreadEnum.TWF.name, CourseDaySpreadEnum.MTh.name]
-    test_professor = Professor(prof_id, prof_name, prof_is_peng, prof_faculty_type, prof_course_pref, prof_obligations,
-                               prof_pref_times, prof_pref_num, prof_pref_no_teach, prof_day_spread)
+    prof_id         = "1"
+    prof_name       = "Bill Bird"
+    test_professor  = Professor(prof_id, prof_name)
     course_code     = "CSC225"
     course_title    = "Algorithms and Data Structure 1"
     course_peng_req = {"fall": True, "spring": True, "Summer": False}
@@ -316,6 +288,6 @@ def create_mock_schedule():
     print(object_json[0])
 
 
-#if __name__ == '__main__':
-    #create_mock_schedule()
+if __name__ == '__main__':
+    historic_year_to_mock_schedule(2021)
 
