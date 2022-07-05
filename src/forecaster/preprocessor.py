@@ -4,7 +4,6 @@
 # This module preprocesses data for use in the forecaster
 import math
 
-from traitlets import Tuple
 
 # Module Private Variables and Classes
 PROGRAM_GROWTH = 1.0855  # TODO: Calculate this dynamically based on program enrolment
