@@ -8,7 +8,7 @@ from .guarantor import verify_intermediate, verify_final, Status
 from .postprocessor import post_process
 
 
-def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) -> str:
+def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, force_flag: int = 2) -> str:
     """ The forecast method will assign capacities to each course offering
     in the provided schedule object. It will use historical program and course
     enrollment data provided from JSON files to make determination about each
@@ -17,9 +17,10 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
     :param course_enrolment: python object loaded from course enrollment file
     :param program_enrolment: python objected loaded from program enrollment file
     :param schedule: common object shared with alg-1 representing course offerings
+    :param force_flag: Forces the forecaster to use heuristics(0), or auto-arima (1) [0:Heuristics, 1:Arima, 2:auto,]
     :return: JSON encoding of schedule object with capacities assigned
     """
-    if course_enrolment is None and program_enrolment is None and schedule is None:
+    if course_enrolment is None or program_enrolment is None or schedule is None:
         return 'OK'
 
     # Preprocessing steps, generate internal data series
@@ -27,7 +28,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
     internal_series = pre_process(course_enrolment, schedule)
 
     # Determine approach and assign course capacities
-    determine_approach(internal_series)
+    determine_approach(internal_series, force_flag)
     apply_auto_arima(internal_series)
     apply_heuristics(internal_series, program_enrolment, low_bound, high_bound)
 
