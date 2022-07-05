@@ -31,7 +31,7 @@ def is_enough_data(course_data: list):
 
 
 # API Functions
-def determine_approach(internal_series: dict, force_flag: int) -> None:
+def determine_approach(internal_series: dict, force_flag: int = 2) -> None:
     """ For each course offering in the internal data series, determine
     whether to apply statical or heuristic methods for capacity assignment:
     by filling in the approach field for each offering in internal series.
