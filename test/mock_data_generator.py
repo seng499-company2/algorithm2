@@ -181,11 +181,32 @@ def extract_course_year(historic_data: dict, year: int):
     summer_courses = []
     for course in historic_data: 
         if course['term'].endswith('09') and str(year) in course['term']:
-            fall_courses.append(course)
+            flag = True
+            for courseComapre in fall_courses:
+                if courseComapre['subjectCourse'] == course['subjectCourse']:
+                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course['maximumEnrollment']
+                    flag = False
+            if flag:
+                fall_courses.append(course)
+
         if course['term'].endswith('01') and str(year+1) in course['term']:
-            spring_courses.append(course)
+            flag = True
+            for courseComapre in spring_courses:
+                if courseComapre['subjectCourse'] == course['subjectCourse']:
+                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course['maximumEnrollment']
+                    flag = False
+            if flag:
+                spring_courses.append(course)
+
         if course['term'].endswith('05') and str(year+1) in course['term']:
-            summer_courses.append(course)
+            flag = True
+            for courseComapre in summer_courses:
+                if courseComapre['subjectCourse'] == course['subjectCourse']:
+                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course['maximumEnrollment']
+                    flag = False
+            if flag:
+                summer_courses.append(course)
+
     return fall_courses, spring_courses, summer_courses
 
 
@@ -254,7 +275,11 @@ def historic_year_to_mock_schedule(year: int, includeCapFlag: bool = True):
     schedule_summer = populate_schedule_term(summer_courses)
 
     schedule = Schedule(schedule_fall, schedule_spring, schedule_summer)
-    return schedule
+    result = jsonpickle.encode(schedule, unpicklable=False)
+
+    json_obj = json.loads(result)
+
+    return json_obj
 
 
 def create_mock_schedule():
@@ -293,12 +318,12 @@ def create_mock_schedule():
     print(object_json[0])
 
 
-if __name__ == '__main__':
-    test_schedule= historic_year_to_mock_schedule(2021, True)
-    result = jsonpickle.encode(test_schedule, unpicklable=False)
+#if __name__ == '__main__':
+    #test_schedule= historic_year_to_mock_schedule(2021, True)
+    #result = jsonpickle.encode(test_schedule, unpicklable=False)
 
-    json_obj = json.loads(result)
+    #json_obj = json.loads(result)
 
-    with open("../data/testSchedule.json", "w") as f:
-        json.dump(json_obj, f)
+    #with open("../data/testSchedule.json", "w") as f:
+    #   json.dump(json_obj, f)
 
