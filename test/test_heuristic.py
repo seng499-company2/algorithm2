@@ -25,9 +25,9 @@ def test_apply_heuristics_no_data():
         en = json.load(fb)
     low, high = compute_bounds(en)
     apply_heuristics(internal_series, en, low, high)
-    assert internal_series["CSC110-F"]["capacity"] == 704
-    assert internal_series["CSC116-F"]["capacity"] == 704
-    assert internal_series["SENG265-F"]["capacity"] == 704
+    assert internal_series["CSC110-F"]["capacity"] == 2816
+    assert internal_series["CSC116-F"]["capacity"] == 2816
+    assert internal_series["SENG265-F"]["capacity"] == 2816
 
 
 def test_apply_heuristics_some_data():
@@ -38,6 +38,6 @@ def test_apply_heuristics_some_data():
         en = json.load(fb)
     low, high = compute_bounds(en)
     apply_heuristics(internal_series, en, low, high)
-    assert internal_series["CSC110-F"]["capacity"] == 989
+    assert internal_series["CSC110-F"]["capacity"] == 4157
     assert internal_series["CSC116-F"]["capacity"] == 134
-    assert internal_series["SENG265-F"]["capacity"] == 989
+    assert internal_series["SENG265-F"]["capacity"] == 4157

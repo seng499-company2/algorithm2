@@ -88,7 +88,8 @@ def scale_capacities_up(internal_series: dict, low_bound: int, current: int) -> 
 def check_bounds(internal_series: dict, low: int, high: int) -> bool:
     total_seats = 0
     for course_offering in internal_series.keys():
-        total_seats += internal_series[course_offering]["capacity"]
+        if internal_series[course_offering]["approach"] != -1:
+            total_seats += internal_series[course_offering]["capacity"]
 
     if total_seats > high or total_seats < low:
         return False
@@ -149,7 +150,8 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
         capacity = internal_series[course_offering]["capacity"]
         if capacity <= 0:
             return Status.MISSING_ASSIGMENT
-        total_seats += capacity
+        if internal_series[course_offering]["approach"] != -1:
+            total_seats += capacity
 
     if total_seats > high_bound:
         scale_capacities_down(internal_series, high_bound, total_seats)
