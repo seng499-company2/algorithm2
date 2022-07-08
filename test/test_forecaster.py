@@ -6,7 +6,7 @@ from pprint import pprint
 
 
 def test_forecast():
-    with open("../data/testSchedule.json", "r") as f:
+    with open("../data/mockSchedule2.json", "r") as f:
         schedule = json.load(f)
     with open("../data/historicCourseData.json", "r") as f:
         class_enrollment = json.load(f)
