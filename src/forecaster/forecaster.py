@@ -46,4 +46,4 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
         raise Exception(f"Algorithm 2 failed to produce an output: {status}")
 
     # Return schedule to caller
-    return json.dumps(output_schedule)
+    return output_schedule

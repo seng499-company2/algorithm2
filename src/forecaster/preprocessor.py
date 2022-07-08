@@ -9,6 +9,7 @@ import math
 PROGRAM_GROWTH = 1.0855  # TODO: Calculate this dynamically based on program enrolment
 MIN_COURSES = 1
 MAX_COURSES = 6
+CSC_FACTOR = 4  # To account for the fact that SEng. seats are 1/4 of total capacity
 RATIO_ACADEMIC = float(11/15)
 
 # Private Module Helper Functions
@@ -95,10 +96,10 @@ def compute_bounds(program_enrolment: dict):
     #  in this function, rather than hard coding 8.55%
     current_enrolment = math.ceil(prev_enrollment * PROGRAM_GROWTH)
 
-    lower_bound = MIN_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC)
-    upper_bound = MAX_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC)
+    lower_bound = CSC_FACTOR * (MIN_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC))
+    upper_bound = CSC_FACTOR * (MAX_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC))
 
-    return lower_bound, upper_bound
+    return lower_bound, upper_bound  # Adjust the bounds to account for CSc. students
 
 
 def pre_process(course_enrollment: list, schedule: dict) -> dict:
