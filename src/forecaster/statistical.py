@@ -18,13 +18,13 @@ def predict_capacity(time_series):
                        seasonal = False,
                        start_P = 0,
                        D = None,
-                       trace = True,
+                       trace = False,
                        error_action = 'warn',
                        suppress_warnings= True,
                        stepwise = True)
             
     capacity = model.predict(1)
-    return capacity[0]
+    return int(capacity[0])
 
 
 # Module API
