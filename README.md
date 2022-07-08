@@ -32,10 +32,8 @@ $ pip3 install ./dist/capacityforecaster-0.0.1.tar.gz
 ```
 
 ## Usage
-The algorithm 2 module may then be imported into and called from the backend. In the example below
-`course_enrollment` `program_enrollment` and `schedule` are python dictionaries or
-JSON strings. A schedule object with capacities assigned is encoded as a JSON string and returned
-to caller.
+The algorithm 2 module may then be imported into and called from the backend. Below,
+`course_enrollment` `program_enrollment` and `schedule` are expected to be python dictionaries.  A schedule object with capacities assigned is encoded as python dictionary and returned to caller.
 
 ```python
 from forecaster.forecaster import forecast

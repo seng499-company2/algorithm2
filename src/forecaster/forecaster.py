@@ -8,7 +8,7 @@ from .guarantor import verify_intermediate, verify_final, Status
 from .postprocessor import post_process
 
 
-def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) -> str:
+def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) -> dict:
     """ The forecast method will assign capacities to each course offering
     in the provided schedule object. It will use historical program and course
     enrollment data provided from JSON files to make determination about each
@@ -45,4 +45,4 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict) ->
         raise Exception(f"Algorithm 2 failed to produce an output: {status}")
 
     # Return schedule to caller
-    return json.dumps(output_schedule)
+    return output_schedule
