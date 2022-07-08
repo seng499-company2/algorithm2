@@ -44,7 +44,7 @@ def determine_approach(internal_series: dict) -> None:
         print(course)
         course['approach'] = 0
 
-        if course['data'] is None:
+        if course['capacity'] is not 0:
             course["approach"] = -1
             continue
 
