@@ -1,8 +1,6 @@
 import json
-from re import X
 
 from forecaster.forecaster import forecast
-from pprint import pprint
 
 
 def test_forecast():
