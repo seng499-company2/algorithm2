@@ -14,5 +14,5 @@ def test_forecast():
         program_enrollment = json.load(f)
     schedule = forecast(class_enrollment, program_enrollment, schedule)
     with open("../data/output_schedule.json", "w") as f:
-        f.write(schedule)
+        f.write(json.dumps(schedule))
     assert schedule is not None
