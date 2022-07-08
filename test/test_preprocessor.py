@@ -6,7 +6,7 @@ from mock_data_generator import generate_course_enrollment
 
 
 def test_compute_bounds():
-    with open("../data/programEnrollmentData.json", "r") as fb:
+    with open("../data/real/programEnrollmentData.json", "r") as fb:
         x = json.load(fb)
     low_bound, high_bound = preprocessor.compute_bounds(x)
     assert low_bound == 1408
@@ -74,8 +74,8 @@ def test_preprocessor():
                     }
 
 def test_preprocessor_advanced():
-    schedule_test = json.load(open('../data/mockSchedule2.json', 'r'))
-    course_enrollment_test = json.load(open('../data/mockHistoricCourseData.json', 'r'))
+    schedule_test = json.load(open('../data/mock/mockSchedule2.json', 'r'))
+    course_enrollment_test = json.load(open('../data/mock/mockHistoricCourseData.json', 'r'))
 
     data = preprocessor.pre_process(course_enrollment_test, schedule_test)
 
