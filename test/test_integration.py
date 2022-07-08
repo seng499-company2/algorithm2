@@ -18,8 +18,8 @@ def test_module_integration():
 
     low_bound, high_bound = preprocessor.compute_bounds(program_enrolment)
 
-    assert low_bound == 352
-    assert high_bound == 2112
+    assert low_bound == 352*4
+    assert high_bound == 2112*4
 
     internal_obj = preprocessor.pre_process(course_enrollment_test, schedule_test)
 
