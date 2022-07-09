@@ -151,7 +151,7 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
         capacity = internal_series[course_offering]["capacity"]
         if capacity <= 0:
             print(str(course_offering) + str(internal_series[course_offering]))
-            return Status.MISSING_ASSIGMENT
+            #return Status.MISSING_ASSIGMENT
         if internal_series[course_offering]["approach"] != -1:
             total_seats += capacity
 

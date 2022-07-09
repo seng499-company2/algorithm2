@@ -23,7 +23,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
     :return: JSON encoding of schedule object with capacities assigned
     """
     if course_enrolment is None:
-        course_file = open(os.path.join(os.path.dirname(__file__), 'static_files/historicCourseData.json'))
+        course_file = open(os.path.join(os.path.dirname(__file__), 'static_files/historicCourses.json'))
         course_enrolment  = json.load(course_file)
         course_file.close()
 
@@ -33,7 +33,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
         enrollment_file.close()
 
     if schedule is None:
-        schedule_file = open(os.path.join(os.path.dirname(__file__), 'static_files/2021Schedule.json'))
+        schedule_file = open(os.path.join(os.path.dirname(__file__), 'static_files/testSchedule.json'))
         schedule  = json.load(schedule_file)
         schedule_file.close()
 
