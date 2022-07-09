@@ -14,12 +14,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -38,12 +38,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -62,12 +62,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -86,12 +86,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -110,12 +110,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -134,12 +134,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -158,12 +158,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -182,36 +182,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        }
-                  ]
-            },
-            {
-                  "course": {
-                        "code": "ECE458",
-                        "title": "Communication Networks",
-                        "pengRequired": {
-                              "fall": false,
-                              "spring": false,
-                              "summer": false
-                        },
-                        "yearRequired": 3
-                  },
-                  "sections": [
-                        {
-                              "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        },
-                        {
-                              "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -230,12 +206,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -254,12 +230,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -278,12 +254,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -302,12 +278,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -326,12 +302,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -350,12 +326,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -374,12 +350,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -398,12 +374,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -422,12 +398,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -446,12 +422,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -470,12 +446,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -1240,12 +1216,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -1264,12 +1240,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -1288,36 +1264,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        }
-                  ]
-            },
-            {
-                  "course": {
-                        "code": "ECE255",
-                        "title": "Introduction to Computer Architecture",
-                        "pengRequired": {
-                              "fall": false,
-                              "spring": false,
-                              "summer": false
-                        },
-                        "yearRequired": 2
-                  },
-                  "sections": [
-                        {
-                              "professor": null,
-                              "capacity": null,
-                              "timeSlots": []
-                        },
-                        {
-                              "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -1336,12 +1288,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1360,12 +1312,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1384,12 +1336,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1408,12 +1360,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1432,12 +1384,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -1456,12 +1408,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -1480,12 +1432,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -1504,12 +1456,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -1528,12 +1480,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -1552,12 +1504,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1576,12 +1528,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -1600,12 +1552,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -1624,12 +1576,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -1648,12 +1600,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -1672,12 +1624,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -1696,12 +1648,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -1720,12 +1672,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -2416,12 +2368,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -2440,12 +2392,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -2464,12 +2416,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -2488,12 +2440,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -2512,12 +2464,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -2536,12 +2488,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -2560,12 +2512,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         }
                   ]
@@ -2584,12 +2536,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -2608,12 +2560,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -2632,12 +2584,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -2656,12 +2608,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
@@ -2680,12 +2632,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         }
                   ]
@@ -2704,12 +2656,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 80,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -2728,12 +2680,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 120,
                               "timeSlots": []
                         }
                   ]
@@ -2752,12 +2704,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 100,
                               "timeSlots": []
                         }
                   ]
@@ -2776,12 +2728,12 @@
                   "sections": [
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 60,
                               "timeSlots": []
                         },
                         {
                               "professor": null,
-                              "capacity": null,
+                              "capacity": 140,
                               "timeSlots": []
                         }
                   ]
