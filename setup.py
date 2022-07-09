@@ -46,6 +46,7 @@ setuptools.setup(
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
+    package_data={'forecaster': ['./static_files/*.json']},
     include_package_data=True,
     install_requires=['pmdarima'],
     python_requires=">=3.6",
