@@ -6,6 +6,7 @@
 # the total number of allocated seats is within our bounds.
 
 from enum import Enum
+from .constants import *
 
 # =============================================================================
 # Module Private Variables and Classes
@@ -153,13 +154,14 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
         if internal_series[course_offering]["approach"] != -1:
             total_seats += capacity
 
-    if total_seats > high_bound:
-        scale_capacities_down(internal_series, high_bound, total_seats)
-    elif total_seats < low_bound:
-        scale_capacities_up(internal_series, low_bound, total_seats)
+    if SCALING_FEATURE_FLAG:
+        if total_seats > high_bound:
+            scale_capacities_down(internal_series, high_bound, total_seats)
+        elif total_seats < low_bound:
+            scale_capacities_up(internal_series, low_bound, total_seats)
 
-    if not check_bounds(internal_series, low_bound, high_bound):
-        return Status.BOUNDS_ERROR
+        if not check_bounds(internal_series, low_bound, high_bound):
+            return Status.BOUNDS_ERROR
 
     for semester in ["fall", "spring", "summer"]:
         number_courses = 0

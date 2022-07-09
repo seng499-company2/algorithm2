@@ -274,7 +274,7 @@ def populate_course_offering(courses: list):
             course_section_capacity = course["maximumEnrollment"]
         else:
             if str(course["subjectCourse"]).lower() in add_cap_first_year:
-                course_section_capacity = course["maximumEnrollment"]
+                course_section_capacity = course["maximumEnrollment"] + 1
 
         test_course_section = CourseSection(course_section_prof, course_section_capacity, course_section_time_slot)
         course_sections.append(test_course_section)

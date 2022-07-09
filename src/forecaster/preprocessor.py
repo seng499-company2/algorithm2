@@ -67,11 +67,12 @@ def is_course_in_term(course_code: str, course_obj_list: list) -> bool:
 def get_capacity(course_code: str, course_offerings: list) -> int:
     """ This function retrieves the cumulative capacity for all sections of a
     course in a specified term"""
-    capacity = 0;
+    capacity = 0
     for course_offering in course_offerings:
         if course_offering['course']['code'] == course_code:
             for section in course_offering['sections']:
-                capacity = capacity + int(section['capacity'])
+                if section['capacity'] is not None:
+                    capacity = capacity + int(section['capacity'])
     return capacity
 
 #=============================================================================
