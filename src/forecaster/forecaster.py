@@ -1,5 +1,7 @@
 import json
 import sys
+import os
+
 from .preprocessor import pre_process, compute_bounds
 from .determination import determine_approach
 from .statistical import apply_auto_arima
@@ -20,8 +22,22 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
     :param force_flag: Forces the forecaster to use heuristics(0), or auto-arima (1) [0:Heuristics, 1:Arima, 2:auto,]
     :return: JSON encoding of schedule object with capacities assigned
     """
-    if course_enrolment is None and program_enrolment is None and schedule is None:
-        return 'OK'
+    if course_enrolment is None:
+        course_file = open(os.path.join(os.path.dirname(__file__), 'static_files/historicCourseData.json'))
+        course_enrolment  = json.load(course_file)
+        course_file.close()
+
+    if program_enrolment is None:
+        enrollment_file = open(os.path.join(os.path.dirname(__file__), 'static_files/programEnrollmentData.json'))
+        program_enrolment  = json.load(enrollment_file)
+        enrollment_file.close()
+
+    if schedule is None:
+        schedule_file = open(os.path.join(os.path.dirname(__file__), 'static_files/2021Schedule.json'))
+        schedule  = json.load(schedule_file)
+        schedule_file.close()
+
+
 
     # Preprocessing steps, generate internal data series
     low_bound, high_bound = compute_bounds(program_enrolment)

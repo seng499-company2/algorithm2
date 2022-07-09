@@ -53,7 +53,7 @@ def determine_approach(internal_series: dict, force_flag: int = 2) -> None:
         if course['data'] is None:
             continue
 
-        if course['capacity'] is not 0:
+        if course['capacity'] != 0:
             course["approach"] = -1
             continue
 
