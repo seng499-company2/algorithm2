@@ -445,7 +445,7 @@
             "id": "1",
             "name": "Christopher Willmore"
           },
-          "capacity": 0,
+          "capacity": 300,
           "timeSlots": []
         }
       ]
@@ -2738,7 +2738,7 @@
             "id": "1",
             "name": "Elisabeth Gugl"
           },
-          "capacity": 0,
+          "capacity": 300,
           "timeSlots": [
             {
               "dayOfWeek": "MONDAY",

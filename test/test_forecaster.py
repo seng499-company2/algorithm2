@@ -12,3 +12,4 @@ def test_forecast():
         class_enrollment = json.load(f)
     with open("../data/real/programEnrollmentData.json", "r") as f:
         program_enrollment = json.load(f)
+    schedule = forecast(class_enrollment,program_enrollment,schedule)

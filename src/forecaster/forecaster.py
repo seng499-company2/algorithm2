@@ -20,7 +20,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
     :param force_flag: Forces the forecaster to use heuristics(0), or auto-arima (1) [0:Heuristics, 1:Arima, 2:auto,]
     :return: JSON encoding of schedule object with capacities assigned
     """
-    if course_enrolment is None or program_enrolment is None or schedule is None:
+    if course_enrolment is None and program_enrolment is None and schedule is None:
         return 'OK'
 
     # Preprocessing steps, generate internal data series
