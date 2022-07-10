@@ -90,8 +90,8 @@ def compute_bounds(program_enrolment: dict):
     """
 
     prev_enrollment = 0
-    for year in program_enrolment["2021"].keys():
-        prev_enrollment += program_enrolment["2021"][year]
+    for year in program_enrolment[2021].keys():
+        prev_enrollment += program_enrolment[2021][year]
 
     # TODO: It might be worthwhile to actually recompute the trend line
     #  in this function, rather than hard coding 8.55%

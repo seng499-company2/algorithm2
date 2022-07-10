@@ -29,7 +29,8 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
 
     if program_enrolment is None:
         enrollment_file = open(os.path.join(os.path.dirname(__file__), 'static_files/programEnrollmentData.json'))
-        program_enrolment  = json.load(enrollment_file)
+        program_enrolment_json  = json.load(enrollment_file)
+        program_enrolment = {int(k): v for k, v in program_enrolment_json.items()}
         enrollment_file.close()
 
     if schedule is None:
