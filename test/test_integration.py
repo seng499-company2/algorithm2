@@ -14,7 +14,8 @@ from mock_data_generator import generate_course_enrollment
 def test_module_integration():
     schedule_test = json.load(open('../data/mock/mockSchedule2.json', 'r'))
     course_enrollment_test = json.load(open('../data/mock/mockHistoricCourseData2.json', 'r'))
-    program_enrolment = json.load(open('../data/real/programEnrollmentData.json', 'r'))
+    program_enrolment_json = json.load(open('../data/real/programEnrollmentData.json', 'r'))
+    program_enrolment = {int(k): v for k, v in program_enrolment_json.items()}
 
     low_bound, high_bound = preprocessor.compute_bounds(program_enrolment)
 
