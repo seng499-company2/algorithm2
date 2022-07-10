@@ -44,16 +44,18 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
                     internal_series[course]["capacity"] = math.floor(enrolment * math.pow(PROGRAM_GROWTH, (i+1)))
                     break
 
-    # Compute number of remaining seats, and unassigned courses
+    # Assign remaining courses via temporary heuristic
     for course in internal_series.keys():
-        if internal_series[course]["capacity"] != 0:
-            remaining_seats -= internal_series[course]["capacity"]
-        else:
-            unassigned_courses += 1
+        if int(internal_series[course]["capacity"]) <= 0:
+            course_code = ''.join(c for c in course if c.isdigit())
+            if course_code[0] >= '4': # fourth year or greater
+                internal_series[course]["capacity"] = 50
+            elif course_code.startswith('3'):
+                internal_series[course]["capacity"] = 60
+            elif course_code.startswith('2'):
+                internal_series[course]["capacity"] = 80
+            elif course_code.startswith('1'):
+                internal_series[course]["capacity"] = 100
+            else: # What else could it be? Who knows but we must guarantee an output
+                internal_series[course]["capacity"] = 80
 
-    # Assign remaining courses via Heuristic 2
-    if unassigned_courses > 0:
-        seats_per_course = math.floor(remaining_seats / unassigned_courses)
-        for course in internal_series.keys():
-            if internal_series[course]["capacity"] <= 0:
-                internal_series[course]["capacity"] = seats_per_course
