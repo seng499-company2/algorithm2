@@ -10,7 +10,8 @@ def test_apply_heuristics_all_data():
                        "SENG265-F": {"data": [0, 91, 0, 129, 142], "approach": 0, "capacity": 0}}
 
     with open("../data/real/programEnrollmentData.json", "r") as fb:
-        en = json.load(fb)
+        en_json = json.load(fb)
+        en = {int(k): v for k, v in en_json.items()}
 
     low, high = compute_bounds(en)
     apply_heuristics(internal_series, en, low, high)
@@ -25,7 +26,8 @@ def test_apply_heuristics_no_data():
                        "SENG265-F": {"data": [0], "approach": 0, "capacity": 0}}
 
     with open("../data/real/programEnrollmentData.json", "r") as fb:
-        en = json.load(fb)
+        en_json = json.load(fb)
+        en = {int(k): v for k, v in en_json.items()}
 
     low, high = compute_bounds(en)
     apply_heuristics(internal_series, en, low, high)
@@ -40,7 +42,8 @@ def test_apply_heuristics_some_data():
                        "SENG265-F": {"data": [0], "approach": 0, "capacity": 0}}
 
     with open("../data/real/programEnrollmentData.json", "r") as fb:
-        en = json.load(fb)
+        en_json = json.load(fb)
+        en = {int(k): v for k, v in en_json.items()}
 
     low, high = compute_bounds(en)
     apply_heuristics(internal_series, en, low, high)
