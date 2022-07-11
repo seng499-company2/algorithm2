@@ -31,14 +31,14 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
         enrollment_file = open(os.path.join(os.path.dirname(__file__), 'static_files/programEnrollmentData.json'))
         program_enrolment_json  = json.load(enrollment_file)
         program_enrolment = {int(k): v for k, v in program_enrolment_json.items()}
-        enrollment_file.close()
+        enrollment_file.close()      
+    else:
+        program_enrolment = {int(k): v for k, v in program_enrolment.items()}
 
     if schedule is None:
         schedule_file = open(os.path.join(os.path.dirname(__file__), 'static_files/testSchedule.json'))
         schedule  = json.load(schedule_file)
-        schedule_file.close()
-
-
+        schedule_file.close()        
 
     # Preprocessing steps, generate internal data series
     low_bound, high_bound = compute_bounds(program_enrolment)
