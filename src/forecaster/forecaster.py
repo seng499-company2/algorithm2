@@ -2,7 +2,7 @@ import json
 import sys
 import os
 
-from .preprocessor import pre_process, compute_bounds
+from .preprocessor import pre_process, compute_bounds, validate_inputs
 from .determination import determine_approach
 from .statistical import apply_auto_arima
 from .heuristic import apply_heuristics
@@ -39,6 +39,11 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
         schedule_file = open(os.path.join(os.path.dirname(__file__), 'static_files/testSchedule.json'))
         schedule  = json.load(schedule_file)
         schedule_file.close()        
+
+    # Validate inputs
+    valid, error = validate_inputs(course_enrolment, program_enrolment, schedule)
+    if not valid:
+        raise ValueError(error)
 
     # Preprocessing steps, generate internal data series
     low_bound, high_bound = compute_bounds(program_enrolment)
