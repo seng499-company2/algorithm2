@@ -43,8 +43,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
     # Validate inputs
     valid, error = validate_inputs(course_enrolment, program_enrolment, schedule)
     if not valid:
-        print(error)
-        return
+        raise ValueError(error)
 
     # Preprocessing steps, generate internal data series
     low_bound, high_bound = compute_bounds(program_enrolment)

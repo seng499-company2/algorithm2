@@ -3,14 +3,8 @@
 # Date: June 17th, 2022
 # This module preprocesses data for use in the forecaster
 import math
+from .constants import *
 
-
-# Module Private Variables and Classes
-PROGRAM_GROWTH = 1.0855  # TODO: Calculate this dynamically based on program enrolment
-MIN_COURSES = 1
-MAX_COURSES = 6
-CSC_FACTOR = 4  # To account for the fact that SEng. seats are 1/4 of total capacity
-RATIO_ACADEMIC = float(11/15)
 
 #=============================================================================
 # Private Module Helper Functions
