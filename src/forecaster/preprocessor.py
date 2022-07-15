@@ -170,35 +170,35 @@ def validate_inputs(course_enrolment: list, program_enrolment: dict, schedule: d
         #check that fields type are correct
         if not isinstance(program_enrolment[key]['1'], int):
             error = f'Expected "1" field to be int not \
-            {type(program_enrolment["1"])}\n'
+            {type(program_enrolment[key]["1"])}\n'
             return (False, error)
         if not isinstance(program_enrolment[key]['2'], int):
             error = f'Expected "2" field to be int not \
-            {type(program_enrolment["2"])}\n'
+            {type(program_enrolment[key]["2"])}\n'
             return (False, error)
         if not isinstance(program_enrolment[key]['2T'], int):
             error = f'Expected "2T" field to be int not \
-            {type(program_enrolment["2T"])}\n'
+            {type(program_enrolment[key]["2T"])}\n'
             return (False, error)
         if not isinstance(program_enrolment[key]['3'], int):
             error = f'Expected "3" field to be int not \
-            {type(program_enrolment["3"])}\n'
+            {type(program_enrolment[key]["3"])}\n'
             return (False, error)
         if not isinstance(program_enrolment[key]['4'], int):
             error = f'Expected "4" field to be int not \
-            {type(program_enrolment["4"])}\n'
+            {type(program_enrolment[key]["4"])}\n'
             return (False, error)
         if not isinstance(program_enrolment[key]['5'], int):
             error = f'Expected "5" field to be int not \
-            {type(program_enrolment["5"])}\n'
+            {type(program_enrolment[key]["5"])}\n'
             return (False, error)
         if not isinstance(program_enrolment[key]['6'], int):
             error = f'Expected "6" field to be int not \
-            {type(program_enrolment["6"])}\n'
+            {type(program_enrolment[key]["6"])}\n'
             return (False, error)
         if not isinstance(program_enrolment[key]['7'], int):
             error = f'Expected "7" field to be int not \
-            {type(program_enrolment["7"])}\n'
+            {type(program_enrolment[key]["7"])}\n'
             return (False, error)
 
     #check schedule is a dict
@@ -231,14 +231,14 @@ def validate_inputs(course_enrolment: list, program_enrolment: dict, schedule: d
                 {type(offering["course"])}\n'
                 return (False, error)
             if not isinstance(offering['sections'], list):
-                error = f'Expected offerings "sections" field to be a dict \
+                error = f'Expected offerings "sections" field to be a list \
                 not {type(offering["course"])}\n'
                 return (False, error)
             if 'code' not in offering['course']:
                 error = f'Expected "code" field in course'
                 return (False, error)
             if not isinstance(offering['course']['code'], str):
-                error = f'Expected "code" field in be a string not \
+                error = f'Expected "code" field to be a string not \
                 {type(offering["course"]["code"])}\n'
                 return (False, error)
             for section in offering['sections']:
