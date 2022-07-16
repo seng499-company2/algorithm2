@@ -6,7 +6,7 @@
 
 
 from math import floor, pow
-from statistics import mean
+#from statistics import mean
 from forecaster.preprocessor import PROGRAM_GROWTH
 
 
@@ -16,8 +16,19 @@ def get_course_type(course_offering: str):
     return year + semester
 
 
+def average_capacity(capacities: list) -> int:
+    seats = sum(capacities)
+    total = 0
+    for capacity in capacities:
+        if capacity > 0:
+            total += 1
+    if total == 0:
+        return 0
+    return floor(seats//total)
+
+
 # Module API
-def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, high_bound: int) -> None:
+def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
     """ Given an intermediate_object, for each course offering marked for
     the heuristic approach, guarantee a course capacity to be applied to
     each course.
@@ -57,7 +68,7 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
             course_types.add(get_course_type(course))
 
     # Initialize average assignments to 0
-    average_assignments = {course_type: [] for course_type in course_types}
+    average_assignments = {course_type: [0] for course_type in course_types}
 
     # Calculate average assignments
     for course in internal_series.keys():
@@ -66,8 +77,15 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
             average_assignments[type].append(internal_series[course]["capacity"])
     
     for assignment in average_assignments.keys():
-        average = floor(mean(average_assignments[assignment]))
+        average = floor(average_capacity(average_assignments[assignment]))
+        print("Average of {} is {}".format(assignment, average))
         average_assignments[assignment] = average
+
+    for course in internal_series.keys():
+        if internal_series[course]["capacity"] <= 0:
+            type = get_course_type(course)
+            if type in average_assignments.keys():
+                internal_series[course]["capacity"] = average_assignments[type]
             
     # Assign remaining courses via heuristic 3
     for course in internal_series.keys():
