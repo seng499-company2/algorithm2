@@ -46,7 +46,7 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
         if internal_series[course]["capacity"] <= 0:
             for i, enrolment in enumerate(reversed(internal_series[course]["data"])):
                 if enrolment != 0:
-                    internal_series[course]["capacity"] = math.floor(enrolment * math.pow(PROGRAM_GROWTH, (i+1)))
+                    internal_series[course]["capacity"] = floor(enrolment * pow(PROGRAM_GROWTH, (i+1)))
                     break
 
     # Assign capacities to courses which have no data point
@@ -66,7 +66,7 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
             average_assignments[type].append(internal_series[course]["capacity"])
     
     for assignment in average_assignments.keys():
-        average = math.floor(mean(average_assignments[assignment]))
+        average = floor(mean(average_assignments[assignment]))
         average_assignments[assignment] = average
             
     # Assign remaining courses via heuristic 3
