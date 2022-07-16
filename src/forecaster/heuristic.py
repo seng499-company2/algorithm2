@@ -6,12 +6,12 @@
 
 
 from math import floor, pow
-#from statistics import mean
 from forecaster.preprocessor import PROGRAM_GROWTH
 
 
 def get_course_type(course_offering: str):
-    year = course_offering[0]
+    code = ''.join(c for c in course_offering if c.isdigit())
+    year = code[0]
     semester = course_offering[-1]
     return year + semester
 
@@ -24,7 +24,7 @@ def average_capacity(capacities: list) -> int:
             total += 1
     if total == 0:
         return 0
-    return floor(seats//total)
+    return floor(seats/total)
 
 
 # Module API
