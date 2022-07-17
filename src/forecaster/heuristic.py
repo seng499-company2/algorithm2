@@ -5,6 +5,7 @@
 
 from enum import Enum
 import math
+import logging
 from forecaster.preprocessor import PROGRAM_GROWTH
 
 
@@ -39,9 +40,12 @@ def apply_heuristics(internal_series: dict, enrolment: dict, low_bound: int, hig
     # Assign capacities to courses which have a data point
     for course in internal_series.keys():
         if internal_series[course]["capacity"] <= 0:
+            logging.debug('%s Trying Heuristics with data' % (str(course).ljust(15, ' ')))
             for i, enrolment in enumerate(reversed(internal_series[course]["data"])):
                 if enrolment != 0:
-                    internal_series[course]["capacity"] = math.floor(enrolment * math.pow(PROGRAM_GROWTH, (i+1)))
+                    capacity = math.floor(enrolment * math.pow(PROGRAM_GROWTH, (i+1)))
+                    internal_series[course]["capacity"] = capacity
+                    logging.debug('%s Success Heuristics forecasted %d' % (str(course).ljust(15, ' '), capacity))
                     break
 
     # Compute number of remaining seats, and unassigned courses

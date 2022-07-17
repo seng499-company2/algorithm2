@@ -6,6 +6,7 @@
 from pmdarima.arima import auto_arima
 from statsmodels.tsa.arima.model import ARIMA
 import pandas as pd
+import logging
 import numpy as np
 
 
@@ -43,6 +44,7 @@ def apply_auto_arima(internal_series: dict) -> dict:
     for key in internal_series:
         course_sem = key
         if internal_series[key]["approach"] == 1 and internal_series[key]["capacity"] <= 0:
+            logging.debug('%s Trying Auto-Arima' % (str(key)).ljust(15, ' '))
             try:
                 past_data = internal_series[key]["data"]
                 past_data = [num for num in past_data if num > 0]
@@ -52,7 +54,9 @@ def apply_auto_arima(internal_series: dict) -> dict:
                 df = df.set_index('time')
                 capacity = predict_capacity(df)
                 internal_series[key]["capacity"] = capacity
+                logging.debug('%s Success Auto-Arima forecasted %d' % (str(key).ljust(15, ' '), capacity))
             except:
                 internal_series[key]["capacity"] = 0
                 internal_series[key]["approach"] = 0
+                logging.debug('%s Failure Auto-Arima' % (str(key).ljust(15, ' ')))
     return internal_series

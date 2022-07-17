@@ -8,6 +8,8 @@
 from enum import Enum
 from .constants import *
 
+import logging
+
 # =============================================================================
 # Module Private Variables and Classes
 # =============================================================================
@@ -142,6 +144,7 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
         }
 
     for course_offering in internal_series.keys():
+        logging.debug('%s Checking intermediate capacity' % (str(course_offering).ljust(15, ' ')))
         if course_offering.endswith("F"):
             semester_courses["fall"].append(course_offering.split('-')[0])
         elif course_offering.endswith("SP"):
@@ -155,6 +158,7 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
             total_seats += capacity
 
     if SCALING_FEATURE_FLAG:
+        logging.debug('Applying scaling')
         if total_seats > high_bound:
             scale_capacities_down(internal_series, high_bound, total_seats)
         elif total_seats < low_bound:
@@ -162,6 +166,8 @@ def verify_intermediate(internal_series: dict, schedule: dict, low_bound: int, h
 
         if not check_bounds(internal_series, low_bound, high_bound):
             return Status.BOUNDS_ERROR
+    else:
+        logging.debug('Skipping scaling')
 
     for semester in ["fall", "spring", "summer"]:
         number_courses = 0
