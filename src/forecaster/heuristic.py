@@ -7,7 +7,7 @@
 
 from math import floor, pow
 from forecaster.preprocessor import PROGRAM_GROWTH
-
+from forecaster.constants import *
 
 def get_course_type(course_offering: str):
     code = ''.join(c for c in course_offering if c.isdigit())
@@ -92,12 +92,12 @@ def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
         if int(internal_series[course]["capacity"]) <= 0:
             course_code = ''.join(c for c in course if c.isdigit())
             if course_code[0] >= '4': # fourth year or greater
-                internal_series[course]["capacity"] = 50
+                internal_series[course]["capacity"] = FOURTH_YEAR_CAPACITY
             elif course_code.startswith('3'):
-                internal_series[course]["capacity"] = 60
+                internal_series[course]["capacity"] = THIRD_YEAR_CAPACITY
             elif course_code.startswith('2'):
-                internal_series[course]["capacity"] = 80
+                internal_series[course]["capacity"] = SECOND_YEAR_CAPACITY
             elif course_code.startswith('1'):
-                internal_series[course]["capacity"] = 100
+                internal_series[course]["capacity"] = FIRST_YEAR_CAPACITY
             else: # What else could it be? Who knows but we must guarantee an output
-                internal_series[course]["capacity"] = 80
+                internal_series[course]["capacity"] = UNKNOWN_YEAR_CAPACITY
