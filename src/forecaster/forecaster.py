@@ -69,7 +69,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
     apply_auto_arima(internal_series)
 
     logging.info('Heuristic Forecasting')
-    apply_heuristics(internal_series, program_enrolment, low_bound, high_bound)
+    apply_heuristics(internal_series, program_enrolment)
 
     # Verify that internal_series assignment was valid
     logging.info('Verifying Intermediate Output')

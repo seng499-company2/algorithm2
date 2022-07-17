@@ -44,7 +44,7 @@ def test_module_integration():
     arima_capacity = internal_obj['CSC225-F']['capacity']
     assert  arima_capacity > 0
 
-    heuristic.apply_heuristics(internal_obj, program_enrolment, low_bound, high_bound)
+    heuristic.apply_heuristics(internal_obj, program_enrolment)
 
     assert internal_obj['CSC225-F']['capacity'] == arima_capacity
     assert internal_obj['CSC226-F']['capacity'] > 0
