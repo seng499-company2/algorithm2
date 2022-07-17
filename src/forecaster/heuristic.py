@@ -4,8 +4,10 @@
 # This module applies  heuristics to determine guarantee capacity
 # assignments for every course offering.
 
-
+from enum import Enum
 from math import floor, pow
+import logging
+
 from forecaster.preprocessor import PROGRAM_GROWTH
 from forecaster.constants import *
 
@@ -55,9 +57,13 @@ def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
     # Assign capacities to courses which have a data point
     for course in internal_series.keys():
         if internal_series[course]["capacity"] <= 0:
+            logging.debug('%s Trying Heuristics with data' % (str(course).ljust(15, ' ')))
             for i, enrolment in enumerate(reversed(internal_series[course]["data"])):
                 if enrolment != 0:
-                    internal_series[course]["capacity"] = floor(enrolment * pow(PROGRAM_GROWTH, (i+1)))
+                    capacity = floor(enrolment * pow(PROGRAM_GROWTH, (i+1)))
+                    internal_series[course]["capacity"] = capacity
+                    logging.debug('%s Success Heuristics forecasted %d' % (str(course).ljust(15, ' '), capacity))
+
                     break
 
     # Assign capacities to courses which have no data point
@@ -78,26 +84,45 @@ def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
     
     for assignment in average_assignments.keys():
         average = floor(average_capacity(average_assignments[assignment]))
-        print("Average of {} is {}".format(assignment, average))
+        logging.debug('Average of %s is %d' % (str(assignment).ljust(15, ' '), average))
         average_assignments[assignment] = average
 
     for course in internal_series.keys():
         if internal_series[course]["capacity"] <= 0:
+            logging.debug('%s Trying Heuristics 2 with forecasted averages' % (str(course).ljust(15, ' ')))
             type = get_course_type(course)
             if type in average_assignments.keys():
                 internal_series[course]["capacity"] = average_assignments[type]
+                logging.debug('%s Success Heuristics 2 forecasted %d' % (str(course).ljust(15, ' '),
+                                                                         average_assignments[type]))
             
     # Assign remaining courses via heuristic 3
     for course in internal_series.keys():
         if int(internal_series[course]["capacity"]) <= 0:
+            logging.debug('%s Trying Heuristics 3 with default averages' % (str(course).ljust(15, ' ')))
             course_code = ''.join(c for c in course if c.isdigit())
             if course_code[0] >= '4': # fourth year or greater
                 internal_series[course]["capacity"] = FOURTH_YEAR_CAPACITY
+                logging.debug(
+                    '%s Success Heuristics 3 forecasted 4th year %d' % (str(course).ljust(15, ' '),
+                                                                        FOURTH_YEAR_CAPACITY))
             elif course_code.startswith('3'):
                 internal_series[course]["capacity"] = THIRD_YEAR_CAPACITY
+                logging.debug(
+                    '%s Success Heuristics 3 forecasted 3rd year %d' % (str(course).ljust(15, ' '),
+                                                                        THIRD_YEAR_CAPACITY))
             elif course_code.startswith('2'):
                 internal_series[course]["capacity"] = SECOND_YEAR_CAPACITY
+                logging.debug(
+                    '%s Success Heuristics 3 forecasted 2nd year %d' % (str(course).ljust(15, ' '),
+                                                                        SECOND_YEAR_CAPACITY))
             elif course_code.startswith('1'):
                 internal_series[course]["capacity"] = FIRST_YEAR_CAPACITY
+                logging.debug(
+                    '%s Success Heuristics 3 forecasted 1st year %d' % (str(course).ljust(15, ' '),
+                                                                        FIRST_YEAR_CAPACITY))
             else: # What else could it be? Who knows but we must guarantee an output
                 internal_series[course]["capacity"] = UNKNOWN_YEAR_CAPACITY
+                logging.debug(
+                    '%s Success Heuristics 3 forecasted unknown year %d' % (str(course).ljust(15, ' '),
+                                                                            UNKNOWN_YEAR_CAPACITY))
