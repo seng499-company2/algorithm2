@@ -42,7 +42,7 @@ def test_module_integration():
     statistical.apply_auto_arima(internal_obj)
 
     arima_capacity = internal_obj['CSC225-F']['capacity']
-    assert  arima_capacity > 0
+    assert  arima_capacity >= 0
 
     heuristic.apply_heuristics(internal_obj, program_enrolment)
 

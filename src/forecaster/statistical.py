@@ -57,7 +57,7 @@ def apply_auto_arima(internal_series: dict) -> dict:
                 internal_series[key]["capacity"] = capacity
                 logging.debug('%s Success Auto-Arima forecasted %d' % (str(key).ljust(15, ' '), capacity))
             except:
-                # internal_series[key]["capacity"] = 0
-                # internal_series[key]["approach"] = 0
+                internal_series[key]["capacity"] = 0
+                internal_series[key]["approach"] = 0
                 logging.debug('%s Failure Auto-Arima' % (str(key).ljust(15, ' ')))
     return internal_series
