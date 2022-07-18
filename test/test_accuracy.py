@@ -16,20 +16,20 @@ def measure_accuracy(reference, output):
                 number_courses += 1
                 assigned_capacity = course["sections"][0]["capacity"]
                 reference_capacity = reference[semester][i]["sections"][0]["capacity"]
-                print()
-                print(f"{semester} : {course_code}")
-                print("Reference: ", reference_capacity, " Assigned: ", assigned_capacity)
+                #print()
+                #print(f"{semester} : {course_code}")
+                #print("Reference: ", reference_capacity, " Assigned: ", assigned_capacity)
                 upper_bound = reference_capacity * 1.2
                 lower_bound = reference_capacity / 1.2
-                print(f"Upper bound: {upper_bound}")
-                print(f"Lower bound: {lower_bound}")
+                #print(f"Upper bound: {upper_bound}")
+                #print(f"Lower bound: {lower_bound}")
                 if assigned_capacity <= upper_bound and assigned_capacity >= lower_bound:
                     correct += 1
-                    print("GOOD")
+                 #   print("GOOD")
                 else:
-                    print("BAD")
+                  #  print("BAD")
                     incorrect += 1
-            print()
+            #print()
         print(f"Semester {semester} has {correct} correct out of {number_courses}")
         print(f"Percetnage correct: {correct/number_courses}")
 
