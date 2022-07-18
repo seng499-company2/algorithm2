@@ -206,8 +206,8 @@ def extract_course_year(historic_data: dict, year: int):
             flag = True
             for courseComapre in fall_courses:
                 if courseComapre['subjectCourse'] == course['subjectCourse']:
-                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course[
-                        'maximumEnrollment']
+                    courseComapre['enrollment'] = courseComapre['enrollment'] + course[
+                        'enrollment']
                     flag = False
             if flag:
                 fall_courses.append(course)
@@ -216,8 +216,8 @@ def extract_course_year(historic_data: dict, year: int):
             flag = True
             for courseComapre in spring_courses:
                 if courseComapre['subjectCourse'] == course['subjectCourse']:
-                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course[
-                        'maximumEnrollment']
+                    courseComapre['enrollment'] = courseComapre['enrollment'] + course[
+                        'enrollment']
                     flag = False
             if flag:
                 spring_courses.append(course)
@@ -226,8 +226,8 @@ def extract_course_year(historic_data: dict, year: int):
             flag = True
             for courseComapre in summer_courses:
                 if courseComapre['subjectCourse'] == course['subjectCourse']:
-                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course[
-                        'maximumEnrollment']
+                    courseComapre['enrollment'] = courseComapre['enrollment'] + course[
+                        'enrollment']
                     flag = False
             if flag:
                 summer_courses.append(course)
@@ -271,10 +271,10 @@ def populate_course_offering(courses: list):
         course_section_capacity = 0
 
         if (CAPFLAG):
-            course_section_capacity = course["maximumEnrollment"]
+            course_section_capacity = course["enrollment"]
         else:
             if str(course["subjectCourse"]).lower() in add_cap_first_year:
-                course_section_capacity = course["maximumEnrollment"] + 1
+                course_section_capacity = course["enrollment"] + 1
 
         test_course_section = CourseSection(course_section_prof, course_section_capacity, course_section_time_slot)
         course_sections.append(test_course_section)
