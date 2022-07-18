@@ -1,0 +1,3329 @@
+{
+    "fall": [
+        {
+            "course": {
+                "code": "CHEM101",
+                "title": "Fundamentals of Chemistry from Atoms to Materials",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Cornelia Bohne"
+                    },
+                    "capacity": 1015,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC111",
+                "title": "Fundamentals of Programming with Engineering Applications",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Bill Bird"
+                    },
+                    "capacity": 390,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC115",
+                "title": "Fundamentals of Programming II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Anthony Estey"
+                    },
+                    "capacity": 160,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC225",
+                "title": "Algorithms and Data Structures I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Venkatesh Srinivasan"
+                    },
+                    "capacity": 183,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC226",
+                "title": "Algorithms and Data Structures II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Nishant Mehta"
+                    },
+                    "capacity": 121,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC230",
+                "title": "Introduction to Computer Architecture",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Jason Corless"
+                    },
+                    "capacity": 162,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC320",
+                "title": "Foundations of Computer Science",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Valerie King"
+                    },
+                    "capacity": 114,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC355",
+                "title": "Digital Logic and Computer Organization",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Sudhakar Ganti"
+                    },
+                    "capacity": 120,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC360",
+                "title": "Operating Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Kui Wu"
+                    },
+                    "capacity": 143,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC361",
+                "title": "Computer Communications and Networks",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Jianping Pan"
+                    },
+                    "capacity": 80,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC370",
+                "title": "Database Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Sean Chester"
+                    },
+                    "capacity": 156,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECON180",
+                "title": "Introduction to Economics and Financial Project Evaluation",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Christopher Willmore"
+                    },
+                    "capacity": 300,
+                    "timeSlots": []
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE255",
+                "title": "Introduction to Computer Architecture",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Kin Fun Li"
+                    },
+                    "capacity": 126,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE260",
+                "title": "Continuous-Time Signals and Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Michael Adams"
+                    },
+                    "capacity": 115,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1330",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1330",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1330",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE355",
+                "title": "Microprocessor-Based Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Daler Rakhmatov"
+                    },
+                    "capacity": 153,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE360",
+                "title": "Control Theory and Systems I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Hong-Chuan Yang"
+                    },
+                    "capacity": 124,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ENGR110",
+                "title": "Design and Communication I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Brock MacLeod"
+                    },
+                    "capacity": 438,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ENGR130",
+                "title": "Introduction to Professional Practice",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Ash Senini"
+                    },
+                    "capacity": 600,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0900",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0900",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH100",
+                "title": "Calculus I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Christopher Bose"
+                    },
+                    "capacity": 750,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH101",
+                "title": "Calculus II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Svetlana Oshkai"
+                    },
+                    "capacity": 360,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH109",
+                "title": "Introduction to Calculus",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Tom Thompson"
+                    },
+                    "capacity": 900,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH110",
+                "title": "Matrix Algebra for Engineers",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Joseph Horan"
+                    },
+                    "capacity": 471,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH122",
+                "title": "Logic and Foundations",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Jon Noel"
+                    },
+                    "capacity": 399,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "PHYS110",
+                "title": "Introductory Physics I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Mark Laidlaw"
+                    },
+                    "capacity": 818,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "PHYS111",
+                "title": "Introductory Physics II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Mark Laidlaw"
+                    },
+                    "capacity": 150,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG265",
+                "title": "Software Development Methods",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Hausi Muller"
+                    },
+                    "capacity": 273,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG310",
+                "title": "Human Computer Interaction",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Sowmya Somanath"
+                    },
+                    "capacity": 127,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG321",
+                "title": "Requirements Engineering",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Navneet Popli"
+                    },
+                    "capacity": 84,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG350",
+                "title": "Software Architecture and Design",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Neil Ernst"
+                    },
+                    "capacity": 107,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG360",
+                "title": "Security Engineering",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Jens Weber"
+                    },
+                    "capacity": 130,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1630",
+                                "1720"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1630",
+                                "1720"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1630",
+                                "1720"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "STAT260",
+                "title": "Introduction to Probability and Statistics I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Laura Teshima"
+                    },
+                    "capacity": 420,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "spring": [
+        {
+            "course": {
+                "code": "CSC111",
+                "title": "Fundamentals of Programming with Engineering Applications",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Joe Krysl"
+                    },
+                    "capacity": 139,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC115",
+                "title": "Fundamentals of Programming II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Anthony Estey"
+                    },
+                    "capacity": 374,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC225",
+                "title": "Algorithms and Data Structures I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Hosna Jabbari"
+                    },
+                    "capacity": 128,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC226",
+                "title": "Algorithms and Data Structures II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Venkatesh Srinivasan"
+                    },
+                    "capacity": 202,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC230",
+                "title": "Introduction to Computer Architecture",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Michael Zastre"
+                    },
+                    "capacity": 140,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC320",
+                "title": "Foundations of Computer Science",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Ulrike Stege"
+                    },
+                    "capacity": 208,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC360",
+                "title": "Operating Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Jianping Pan"
+                    },
+                    "capacity": 131,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC361",
+                "title": "Computer Communications and Networks",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Kui Wu"
+                    },
+                    "capacity": 130,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC370",
+                "title": "Database Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Sean Chester"
+                    },
+                    "capacity": 170,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC460",
+                "title": "Design and Analysis of Real-time Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "4"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Ahmad Abdullah"
+                    },
+                    "capacity": 9,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE310",
+                "title": "Digital Signal Processing I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Xiaodai Dong"
+                    },
+                    "capacity": 144,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE360",
+                "title": "Control Theory and Systems I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Raja Ali Riaz"
+                    },
+                    "capacity": 54,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE455",
+                "title": "Real Time Computer Systems Design Project",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "4"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Amirali Baniasadi"
+                    },
+                    "capacity": 102,
+                    "timeSlots": []
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE458",
+                "title": "Communication Networks",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "4"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Sana Shuja"
+                    },
+                    "capacity": 111,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ENGR120",
+                "title": "Design and Communication II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Kate Skipsey"
+                    },
+                    "capacity": 390,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ENGR130",
+                "title": "Introduction to Professional Practice",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Susan Fiddler"
+                    },
+                    "capacity": 70,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1700",
+                                "1850"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ENGR141",
+                "title": "Engineering Mechanics",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Flavio Firmani"
+                    },
+                    "capacity": 420,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH100",
+                "title": "Calculus I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Svetlana Oshkai"
+                    },
+                    "capacity": 200,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH101",
+                "title": "Calculus II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Muhammad Awais"
+                    },
+                    "capacity": 1055,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH109",
+                "title": "Introduction to Calculus",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Nahid Pourdolat Safari"
+                    },
+                    "capacity": 195,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH122",
+                "title": "Logic and Foundations",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Michelle Edwards"
+                    },
+                    "capacity": 320,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "PHYS110",
+                "title": "Introductory Physics I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Mark Laidlaw"
+                    },
+                    "capacity": 253,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "PHYS111",
+                "title": "Introductory Physics II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Mark Laidlaw"
+                    },
+                    "capacity": 540,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG265",
+                "title": "Software Development Methods",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Hausi Muller"
+                    },
+                    "capacity": 183,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG275",
+                "title": "Software Testing",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Margaret-Anne Storey"
+                    },
+                    "capacity": 84,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG321",
+                "title": "Requirements Engineering",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Neil Ernst"
+                    },
+                    "capacity": 81,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG371",
+                "title": "Software Evolution",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Jens Weber"
+                    },
+                    "capacity": 80,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1530",
+                                "1620"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG401",
+                "title": "Social and Professional Issues",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "4"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Michael Zastre"
+                    },
+                    "capacity": 84,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "STAT260",
+                "title": "Introduction to Probability and Statistics I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Chi Kou"
+                    },
+                    "capacity": 320,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "summer": [
+        {
+            "course": {
+                "code": "CHEM101",
+                "title": "Fundamentals of Chemistry from Atoms to Materials",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Michele de Souza"
+                    },
+                    "capacity": 138,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC115",
+                "title": "Fundamentals of Programming II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Celina Berg"
+                    },
+                    "capacity": 110,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC225",
+                "title": "Algorithms and Data Structures I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Hosna Jabbari"
+                    },
+                    "capacity": 65,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC226",
+                "title": "Algorithms and Data Structures II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Quinton Yong"
+                    },
+                    "capacity": 86,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1130",
+                                "1220"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC230",
+                "title": "Introduction to Computer Architecture",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Michael Zastre"
+                    },
+                    "capacity": 59,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC320",
+                "title": "Foundations of Computer Science",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Ulrike Stege"
+                    },
+                    "capacity": 134,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC360",
+                "title": "Operating Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Michael Zastre"
+                    },
+                    "capacity": 91,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0930",
+                                "1020"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "CSC370",
+                "title": "Database Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Sean Chester"
+                    },
+                    "capacity": 105,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1630",
+                                "1750"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1630",
+                                "1750"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECON180",
+                "title": "Introduction to Economics and Financial Project Evaluation",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Elisabeth Gugl"
+                    },
+                    "capacity": 300,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1300",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE260",
+                "title": "Continuous-Time Signals and Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Michael Adams"
+                    },
+                    "capacity": 89,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ECE310",
+                "title": "Digital Signal Processing I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Raja Ali Riaz"
+                    },
+                    "capacity": 30,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "ENGR141",
+                "title": "Engineering Mechanics",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Saeedeh Saghlatoun"
+                    },
+                    "capacity": 70,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH101",
+                "title": "Calculus II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Muhammad Awais"
+                    },
+                    "capacity": 190,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1430",
+                                "1520"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH109",
+                "title": "Introduction to Calculus",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Shangzhi Zeng"
+                    },
+                    "capacity": 75,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "MATH122",
+                "title": "Logic and Foundations",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Joseph Horan"
+                    },
+                    "capacity": 80,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "PHYS111",
+                "title": "Introductory Physics II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "1"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Mark Laidlaw"
+                    },
+                    "capacity": 110,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1330",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1330",
+                                "1420"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1330",
+                                "1420"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG265",
+                "title": "Software Development Methods",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Hausi Muller"
+                    },
+                    "capacity": 78,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1230",
+                                "1320"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG275",
+                "title": "Software Testing",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Navneet Popli"
+                    },
+                    "capacity": 40,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "1030",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG310",
+                "title": "Human Computer Interaction",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "3"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Sowmya Somanath"
+                    },
+                    "capacity": 131,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1130",
+                                "1250"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG426",
+                "title": "Software Quality Engineering",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "4"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Issa Traore"
+                    },
+                    "capacity": 89,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "1000",
+                                "1120"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG440",
+                "title": "Embedded Systems",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "4"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Mihai Sima"
+                    },
+                    "capacity": 103,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "MONDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "THURSDAY",
+                            "timeRange": [
+                                "0830",
+                                "0950"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "SENG499",
+                "title": "Design Project II",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "4"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Daniela Damian"
+                    },
+                    "capacity": 83,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "1500",
+                                "1620"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "course": {
+                "code": "STAT260",
+                "title": "Introduction to Probability and Statistics I",
+                "pengRequired": {
+                    "fall": true,
+                    "spring": true,
+                    "Summer": false
+                },
+                "yearRequired": "2"
+            },
+            "sections": [
+                {
+                    "professor": {
+                        "id": "1",
+                        "name": "Chi Kou"
+                    },
+                    "capacity": 140,
+                    "timeSlots": [
+                        {
+                            "dayOfWeek": "TUESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "WEDNESDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        },
+                        {
+                            "dayOfWeek": "FRIDAY",
+                            "timeRange": [
+                                "0830",
+                                "0920"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
