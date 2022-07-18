@@ -3,7 +3,7 @@
 # Date: June 17th, 2022
 # This module determines the approach to use
 from .constants import *
-
+import logging
 # Private Module Variables, Classes
 
 
@@ -44,27 +44,34 @@ def determine_approach(internal_series: dict, force_flag: int = 2) -> None:
     for key, course in internal_series.items():
         if force_flag == 0:
             course['approach'] = 0
+            logging.debug('%s Forced to Heuristics' % (str(key)).ljust(15, ' '))
             continue
         if force_flag == 1:
             course['approach'] = 1
+            logging.debug('%s Forced to Statistics' % (str(key)).ljust(15, ' '))
             continue
 
         # If there is no data
         if course['data'] is None:
+            logging.debug('%s Already has capacity, no forecasting' % (str(key)).ljust(15, ' '))
             continue
 
         if course['capacity'] != 0:
             course["approach"] = -1
+            logging.debug('%s Already has capacity, no forecasting' % (str(key)).ljust(15, ' '))
             continue
 
         # The most recent data is too old
         if not is_year_recent_enough(course['data']):
+            logging.debug('%s Data too old, picking Heuristics' % (str(key)).ljust(15, ' '))
             continue
 
         # There isn't enough data
         if not is_enough_data(course['data']):
+            logging.debug('%s Not enough data, picking Heuristics' % (str(key)).ljust(15, ' '))
             continue
 
         # If all check passed we have enough information for statistical forecasting
         course['approach'] = 1
+        logging.debug('%s Enough data, picking Statistics' % (str(key)).ljust(15, ' '))
     return

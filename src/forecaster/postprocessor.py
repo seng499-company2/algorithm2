@@ -6,6 +6,7 @@
 import copy
 import json
 import math
+import logging
 
 # Private Module Variables, Classes
 internal_object = {}
@@ -19,13 +20,19 @@ def assign_capacities(term: dict, term_code: str):
         num_sections = len(course_sections)
         try:
             total_capacity = internal_object[course_name]['capacity']
+            logging.debug('%s Post-processing' % (str(course_name)).ljust(15, ' '))
             if num_sections == 1:
                 course['sections'][0]['capacity'] = total_capacity
+                logging.debug('%s One section with %d' % (str(course_name).ljust(15, ' '), total_capacity))
             elif num_sections == 2:
                 course['sections'][0]['capacity'] = math.ceil(total_capacity * 0.75)
                 course['sections'][1]['capacity'] = math.ceil(total_capacity * 0.25)
+                logging.debug('%s Two sections with %d, and %d' % (str(course_name).ljust(15, ' '),
+                                                                  math.ceil(total_capacity * 0.75),
+                                                                  math.ceil(total_capacity * 0.25)))
             else:
                 capacity_per_section = math.ceil(total_capacity / num_sections)
+                logging.debug('%s %d sections with %d' % (str(course_name).ljust(15, ' '),num_sections, capacity_per_section))
                 for section in course_sections:
                     section['capacity'] = capacity_per_section
         finally:
