@@ -3,7 +3,6 @@
 # Date: June 17th, 2022
 # This module preprocesses data for use in the forecaster
 import math
-from typing import List
 from .constants import *
 
 
@@ -72,7 +71,7 @@ def get_capacity(course_code: str, course_offerings: list) -> int:
     return capacity
 
 
-def generate_cutoff_semesters(year: int) -> List:
+def generate_cutoff_semesters(year: int) -> list:
     """ This function generats a list of semester codes, which
     can be used to exclude historic enrollment data up to the input
     year. """
