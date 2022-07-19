@@ -3,6 +3,7 @@
 # Date: June 17th, 2022
 # This module preprocesses data for use in the forecaster
 import math
+from typing import List
 from .constants import *
 
 
@@ -69,6 +70,19 @@ def get_capacity(course_code: str, course_offerings: list) -> int:
                 if section['capacity'] is not None:
                     capacity = capacity + int(section['capacity'])
     return capacity
+
+
+def generate_cutoff_semesters(year: int) -> List:
+    """ This function generats a list of semester codes, which
+    can be used to exclude historic enrollment data up to the input
+    year. """
+    cutoff_semesters = []
+    for year in range(year, 2024):
+        cutoff_semesters.append(str(year) + '09')
+        cutoff_semesters.append(str(year) + '01')
+        cutoff_semesters.append(str(year) + '05')
+    return cutoff_semesters
+
 
 #=============================================================================
 # API Functions
@@ -280,7 +294,7 @@ def compute_bounds(program_enrolment: dict):
     return lower_bound, upper_bound  # Adjust the bounds to account for CSc. students
 
 
-def pre_process(course_enrollment: list, schedule: dict) -> dict:
+def pre_process(course_enrollment: list, schedule: dict, year_cutoff=None) -> dict:
     """ Takes class enrollment JSON and schedule JSON and generates an 
     intermediate object with data-series organized by class-term
 
@@ -297,6 +311,9 @@ def pre_process(course_enrollment: list, schedule: dict) -> dict:
     set_of_courses = get_set_of_course_codes(schedule)
 
     intermediate = {}
+    remove_semesters = []
+    if year_cutoff is not None:
+        remove_semesters = generate_cutoff_semesters(year_cutoff)
     for course in set_of_courses:
         for term in ('fall', 'spring', 'summer'):
             if not is_course_in_term(course, schedule[term]):
@@ -314,6 +331,8 @@ def pre_process(course_enrollment: list, schedule: dict) -> dict:
             data = []
             # for each offering in (200801, 200805....)
             for offering in historical_term_codes[term]:
+                if offering in remove_semesters:
+                    continue
                 # loop through course_enrollment to get enrollment data
                 students_enrolled = 0
                 for section in course_enrollment:

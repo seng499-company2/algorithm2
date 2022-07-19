@@ -13,7 +13,7 @@ from .postprocessor import post_process
 
 
 def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, force_flag: int = 2,
-             logging_level: int = logging.INFO) -> str:
+             logging_level: int = logging.INFO, cutoff_year=None) -> str:
     """ The forecast method will assign capacities to each course offering
     in the provided schedule object. It will use historical program and course
     enrollment data provided from JSON files to make determination about each
@@ -59,7 +59,7 @@ def forecast(course_enrolment: dict, program_enrolment: dict, schedule: dict, fo
     # Preprocessing steps, generate internal data series
     logging.info('Preprocessing')
     low_bound, high_bound = compute_bounds(program_enrolment)
-    internal_series = pre_process(course_enrolment, schedule)
+    internal_series = pre_process(course_enrolment, schedule, year_cutoff=cutoff_year)
 
     # Determine approach and assign course capacities
     logging.info('Determing Approach')

@@ -20,7 +20,7 @@ def predict_capacity(time_series):
                        seasonal=False,
                        start_P=0,
                        D=None,
-                       trace=True,
+                       trace=False,
                        error_action='warn',
                        suppress_warnings=True,
                        stepwise=True)
