@@ -57,7 +57,7 @@ $ cd test
 $ python -m pytest
 ```
 
-#Software Architecture
+# Software Architecture
 
 The following section will highliight the software architecture created, and a breif description of the purpose and function of each module to better aid a new developer in learning inner working of the system, creating faster onboarding. 
 
