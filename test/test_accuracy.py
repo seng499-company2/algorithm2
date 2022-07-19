@@ -49,6 +49,21 @@ def measure_accuracy(year, reference, output, deviation):
                     incorrect += 1
         print(f"{semester}: {correct/number_courses*100:.2f}%")
 
+def measure_mean_squared_error(year, reference, output):
+    # MSE = 1/n * sum(for each n: (Y1-Y2)^2 ) where n=number of courses, Y1=actual value, Y2=predicted value
+    print(f"Year:{year}")
+    for semester in ["fall", "spring", "summer"]:
+        result = 0
+        number_courses = 0
+        for i, course in enumerate(output[semester]):
+            course_code = ''.join(c.lower() for c in course["course"]["code"])
+            if course_code not in add_cap_first_year:
+                number_courses += 1
+                assigned_capacity = course["sections"][0]["capacity"]
+                reference_capacity = reference[semester][i]["sections"][0]["capacity"]
+                result += (reference_capacity - assigned_capacity)**2
+        print(f"{semester} MSE: {(1/number_courses) * (result)}") 
+    print("\n")    
 
 def test_accuracy_normal(open_files):
 
@@ -104,4 +119,18 @@ def test_accuracy_heuristic(open_files):
         # Compare the forecasted schedule with the reference schedule
         measure_accuracy(year, reference_schedule, output_schedule, standard_deviation)
 
+    assert True
+
+def test_mean_squared_error(open_files):
+
+    for year in range(2008, 2022):
+        # Generate reference (correct) schedule
+        reference_schedule = historic_year_to_mock_schedule(year, includeCapFlag=True)
+        input_schedule = historic_year_to_mock_schedule(year, includeCapFlag=False)
+
+        # Run the forecaster on 2021
+        class_enrollment, program_enrollment = open_files
+        output_schedule = forecast(class_enrollment, program_enrollment, input_schedule, cutoff_year=year, force_flag=2)
+
+        measure_mean_squared_error(year, reference_schedule, output_schedule)
     assert True
