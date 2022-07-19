@@ -1,6 +1,5 @@
 import json
 
-from jsonschema import FormatChecker
 from forecaster.forecaster import forecast
 from pprint import pprint
 import pytest
