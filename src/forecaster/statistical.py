@@ -12,10 +12,11 @@ import numpy as np
 
 # Helper Functions
 def predict_capacity(time_series):
-    model = auto_arima(time_series, start_p=2, start_q=2,
+    model = auto_arima(time_series, start_p=1, start_q=1,
                        max_p=10, max_q=10,
+                       test='adf',
                        m=1,
-                       d=1,
+                       d=None,
                        seasonal=False,
                        start_P=0,
                        D=None,
