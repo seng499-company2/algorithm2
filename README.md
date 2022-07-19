@@ -61,5 +61,6 @@ $ python -m pytest
 
 The following section will highliight the software architecture created, and a breif description of the purpose and function of each module to better aid a new developer in learning inner working of the system, creating faster onboarding. 
 
-
-![alt text](https://github.com/seng499-company2/algorithm2/blob/40-documentation/AlgOverview.png?raw=true)
+<p align="center">
+  <img src="https://github.com/seng499-company2/algorithm2/blob/40-documentation/AlgOverview.png?raw=true" alt="Alg overview diagram"/>
+</p>
