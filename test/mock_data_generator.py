@@ -9,17 +9,17 @@ add_cap_first_year = [
     "engr130",
     "engr110",
     "phys110",
-    "csc111 ",
+    "csc111",
     "math101",
     "engr120",
     "engr141",
     "phys111",
-    "csc115 ",
+    "csc115",
     "engr001",
     "chem101",
     "math122",
     "stat260",
-    "econ180 "
+    "econ180"
 ]
 
 def populate_term(courses: list, term: list, min_sections: int, max_sections: int):
@@ -202,32 +202,35 @@ def extract_course_year(historic_data: dict, year: int):
     spring_courses = []
     summer_courses = []
     for course in historic_data:
-        if course['term'].endswith('09') and str(year) in course['term']:
+        # print(f"Course term: {course['term']}")
+        # print(f"Year: {year}")
+        # print(f"{course['term'].startswith(str(year))}")
+        if course['term'].endswith('09') and course['term'].startswith(str(year)):#str(year) in course['term']:
             flag = True
             for courseComapre in fall_courses:
                 if courseComapre['subjectCourse'] == course['subjectCourse']:
-                    courseComapre['enrollment'] = courseComapre['enrollment'] + course[
-                        'enrollment']
+                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course[
+                        'maximumEnrollment']
                     flag = False
             if flag:
                 fall_courses.append(course)
 
-        if course['term'].endswith('01') and str(year + 1) in course['term']:
+        if course['term'].endswith('01') and course['term'].startswith(str(year+1)):#str(year + 1) in course['term']:
             flag = True
             for courseComapre in spring_courses:
                 if courseComapre['subjectCourse'] == course['subjectCourse']:
-                    courseComapre['enrollment'] = courseComapre['enrollment'] + course[
-                        'enrollment']
+                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course[
+                        'maximumEnrollment']
                     flag = False
             if flag:
                 spring_courses.append(course)
 
-        if course['term'].endswith('05') and str(year + 1) in course['term']:
+        if course['term'].endswith('05') and course['term'].startswith(str(year+1)):#str(year + 1) in course['term']:
             flag = True
             for courseComapre in summer_courses:
                 if courseComapre['subjectCourse'] == course['subjectCourse']:
-                    courseComapre['enrollment'] = courseComapre['enrollment'] + course[
-                        'enrollment']
+                    courseComapre['maximumEnrollment'] = courseComapre['maximumEnrollment'] + course[
+                        'maximumEnrollment']
                     flag = False
             if flag:
                 summer_courses.append(course)
@@ -271,10 +274,10 @@ def populate_course_offering(courses: list):
         course_section_capacity = 0
 
         if (CAPFLAG):
-            course_section_capacity = course["enrollment"]
+            course_section_capacity = course["maximumEnrollment"]
         else:
             if str(course["subjectCourse"]).lower() in add_cap_first_year:
-                course_section_capacity = course["enrollment"] + 1
+                course_section_capacity = course["maximumEnrollment"] + 1
 
         test_course_section = CourseSection(course_section_prof, course_section_capacity, course_section_time_slot)
         course_sections.append(test_course_section)

@@ -60,10 +60,16 @@ def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
             logging.debug('%s Trying Heuristics with data' % (str(course).ljust(15, ' ')))
             for i, enrolment in enumerate(reversed(internal_series[course]["data"])):
                 if enrolment != 0:
-                    capacity = floor(enrolment * pow(PROGRAM_GROWTH, (i+1)))
+                    growth = PROGRAM_GROWTH
+                    if course.endswith("F"):
+                        growth = 1.01
+                    elif course.endswith("SP"):
+                        growth = 1.02
+                    elif course.endswith("SU"):
+                        growth = 1.06
+                    capacity = floor(enrolment * pow(growth, (i+1)))
                     internal_series[course]["capacity"] = capacity
                     logging.debug('%s Success Heuristics forecasted %d' % (str(course).ljust(15, ' '), capacity))
-
                     break
 
     # Assign capacities to courses which have no data point
@@ -92,7 +98,7 @@ def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
             logging.debug('%s Trying Heuristics 2 with forecasted averages' % (str(course).ljust(15, ' ')))
             type = get_course_type(course)
             if type in average_assignments.keys():
-                internal_series[course]["capacity"] = average_assignments[type]
+                internal_series[course]["capacity"] = floor(average_assignments[type]*0.6)
                 logging.debug('%s Success Heuristics 2 forecasted %d' % (str(course).ljust(15, ' '),
                                                                          average_assignments[type]))
             

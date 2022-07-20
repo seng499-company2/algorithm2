@@ -339,7 +339,7 @@ def pre_process(course_enrollment: list, schedule: dict, year_cutoff=None) -> di
                             (section["subjectCourse"] == course)):
                         # add up sections enrollments
                         students_enrolled = students_enrolled \
-                            + section['enrollment']
+                            + section['maximumEnrollment']
                 data.append(students_enrolled)
             intermediate[key] = {'data': data, 'approach': 0, 'capacity': 0}
 
