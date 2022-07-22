@@ -73,7 +73,7 @@ def mock_data_generator(fall_courses: list, spring_courses: list, summer_courses
 def generate_historial_offering(course: str, course_term_code: str, enrollment: int) -> dict:
     """ This function takes in a course, course-term code, and enrollment
     value and returns a single historical offering dictionary"""
-    return {'term': course_term_code, 'enrollment': enrollment, 'subjectCourse': course}
+    return {'term': course_term_code, 'maximumEnrollment': enrollment, 'subjectCourse': course}
 
 
 def generate_course_enrollment(fall_courses: list, spring_courses: list, summer_courses: list,

@@ -2,7 +2,8 @@
 MAX_TERMS_SINCE_LAST_OFFERING = 3       # The max number of years since the last offering to perform statistical forecasting
 MIN_DATA_POINTS               = 5       # Then minimum number of data points needed to perform statistical forecasting
 SCALING_FEATURE_FLAG          = False   # Feature flag for scaling
-PROGRAM_GROWTH = 1.0855  # TODO: Calculate this dynamically based on program enrolment
+OVERALL_PROGRAM_GROWTH        = 1.0855  # The overall program growth rate
+RECENT_PROGRAM_GROWTH = 1.0426          # Program growth rate for the last year
 MIN_COURSES = 1
 MAX_COURSES = 6
 CSC_FACTOR = 4  # To account for the fact that SEng. seats are 1/4 of total capacity

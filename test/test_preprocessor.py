@@ -82,10 +82,10 @@ def test_preprocessor_advanced():
 
     data = preprocessor.pre_process(course_enrollment_test, schedule_test)
 
-    assert data == {'CSC225-F': {'data': [10, 10, 10, 30], 'approach': 0, 'capacity': 0},
-                    'CSC226-F': {'data': [10, 10, 30, 10], 'approach': 0, 'capacity': 0},
+    assert data == {'CSC225-F': {'data': [250, 250, 250, 750], 'approach': 0, 'capacity': 0},
+                    'CSC226-F': {'data': [250, 250, 750, 250], 'approach': 0, 'capacity': 0},
                     'CSC320-SP': {'data': None, 'approach': 0, 'capacity': 40},
-                    'CSC360-SU': {'data': [10, 30,10, 10], 'approach': 0, 'capacity': 0},
+                    'CSC360-SU': {'data': [250, 750, 250, 250], 'approach': 0, 'capacity': 0},
                     'CSC370-SU': {'data': None, 'approach': 0, 'capacity': 100},
                     }
 

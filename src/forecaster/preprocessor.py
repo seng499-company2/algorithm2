@@ -285,7 +285,7 @@ def compute_bounds(program_enrolment: dict):
 
     # TODO: It might be worthwhile to actually recompute the trend line
     #  in this function, rather than hard coding 8.55%
-    current_enrolment = math.ceil(prev_enrollment * PROGRAM_GROWTH)
+    current_enrolment = math.ceil(prev_enrollment * OVERALL_PROGRAM_GROWTH)
 
     lower_bound = CSC_FACTOR * (MIN_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC))
     upper_bound = CSC_FACTOR * (MAX_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC))
