@@ -145,7 +145,7 @@ def test_validate_input_invalid_course_enrolment():
     valid, error = preprocessor.validate_inputs(course_enrollment_test, program_enrollment_test, schedule_test)
 
     assert not valid
-    assert 'Expected "enrollment" field to be int not' in error
+    assert 'Expected "maximumEnrollment" field to be int not' in error
 
     offering = {"term": '202301',
                 "maximumEnrollment": 0,
