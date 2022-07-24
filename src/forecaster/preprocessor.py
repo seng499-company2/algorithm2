@@ -117,8 +117,8 @@ def validate_inputs(course_enrolment: list, program_enrolment: dict, schedule: d
         if 'term' not in offering:
             error = f'No "term" field in course offering\n'
             return (False, error)
-        if 'enrollment' not in offering:
-            error = f'No "enrollment" field in course offering\n'
+        if 'maximumEnrollment' not in offering:
+            error = f'No "maximumEnrollment" field in course offering\n'
             return (False, error)
         if 'subjectCourse' not in offering:
             error = f'No "subjectCourse" field in course offering\n'
@@ -128,9 +128,9 @@ def validate_inputs(course_enrolment: list, program_enrolment: dict, schedule: d
             error = f'Expected "term" field to be string not \
             {type(offering["term"])}\n'
             return (False, error)
-        if not isinstance(offering['enrollment'], int):
-            error = f'Expected "enrollment" field to be int not \
-            {type(offering["enrollment"])}\n'
+        if not isinstance(offering['maximumEnrollment'], int):
+            error = f'Expected "maximumEnrollment" field to be int not \
+            {type(offering["maximumEnrollment"])}\n'
             return (False, error)
         if not isinstance(offering['subjectCourse'], str):
             error = f'Expected "subjectCourse" field to be string not \
@@ -285,7 +285,7 @@ def compute_bounds(program_enrolment: dict):
 
     # TODO: It might be worthwhile to actually recompute the trend line
     #  in this function, rather than hard coding 8.55%
-    current_enrolment = math.ceil(prev_enrollment * PROGRAM_GROWTH)
+    current_enrolment = math.ceil(prev_enrollment * OVERALL_PROGRAM_GROWTH)
 
     lower_bound = CSC_FACTOR * (MIN_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC))
     upper_bound = CSC_FACTOR * (MAX_COURSES * math.ceil(current_enrolment * RATIO_ACADEMIC))
@@ -339,7 +339,7 @@ def pre_process(course_enrollment: list, schedule: dict, year_cutoff=None) -> di
                             (section["subjectCourse"] == course)):
                         # add up sections enrollments
                         students_enrolled = students_enrolled \
-                            + section['enrollment']
+                            + section['maximumEnrollment']
                 data.append(students_enrolled)
             intermediate[key] = {'data': data, 'approach': 0, 'capacity': 0}
 

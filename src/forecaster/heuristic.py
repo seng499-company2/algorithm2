@@ -8,7 +8,7 @@ from enum import Enum
 from math import floor, pow
 import logging
 
-from forecaster.preprocessor import PROGRAM_GROWTH
+from forecaster.preprocessor import RECENT_PROGRAM_GROWTH
 from forecaster.constants import *
 
 def get_course_type(course_offering: str):
@@ -60,10 +60,9 @@ def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
             logging.debug('%s Trying Heuristics with data' % (str(course).ljust(15, ' ')))
             for i, enrolment in enumerate(reversed(internal_series[course]["data"])):
                 if enrolment != 0:
-                    capacity = floor(enrolment * pow(PROGRAM_GROWTH, (i+1)))
+                    capacity = floor(enrolment * pow(RECENT_PROGRAM_GROWTH, (i+1)))
                     internal_series[course]["capacity"] = capacity
                     logging.debug('%s Success Heuristics forecasted %d' % (str(course).ljust(15, ' '), capacity))
-
                     break
 
     # Assign capacities to courses which have no data point
@@ -92,7 +91,7 @@ def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
             logging.debug('%s Trying Heuristics 2 with forecasted averages' % (str(course).ljust(15, ' ')))
             type = get_course_type(course)
             if type in average_assignments.keys():
-                internal_series[course]["capacity"] = average_assignments[type]
+                internal_series[course]["capacity"] = floor(average_assignments[type]*0.6)
                 logging.debug('%s Success Heuristics 2 forecasted %d' % (str(course).ljust(15, ' '),
                                                                          average_assignments[type]))
             

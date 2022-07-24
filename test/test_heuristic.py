@@ -14,9 +14,9 @@ def test_apply_heuristics_all_data():
         en = {int(k): v for k, v in en_json.items()}
 
     apply_heuristics(internal_series, en)
-    assert internal_series["CSC110-F"]["capacity"] == 166
-    assert internal_series["CSC116-F"]["capacity"] == 141
-    assert internal_series["SENG265-F"]["capacity"] == 154
+    assert internal_series["CSC110-F"]["capacity"] == 159
+    assert internal_series["CSC116-F"]["capacity"] == 135
+    assert internal_series["SENG265-F"]["capacity"] == 148
 
 
 def test_apply_heuristics_no_data():
@@ -44,6 +44,6 @@ def test_apply_heuristics_some_data():
         en = {int(k): v for k, v in en_json.items()}
 
     apply_heuristics(internal_series, en)
-    assert internal_series["CSC110-F"]["capacity"] == 134
-    assert internal_series["CSC116-F"]["capacity"] == 134
+    assert internal_series["CSC110-F"]["capacity"] == 77
+    assert internal_series["CSC116-F"]["capacity"] == 129
     assert internal_series["SENG265-F"]["capacity"] == 80

@@ -82,10 +82,10 @@ def test_preprocessor_advanced():
 
     data = preprocessor.pre_process(course_enrollment_test, schedule_test)
 
-    assert data == {'CSC225-F': {'data': [10, 10, 10, 30], 'approach': 0, 'capacity': 0},
-                    'CSC226-F': {'data': [10, 10, 30, 10], 'approach': 0, 'capacity': 0},
+    assert data == {'CSC225-F': {'data': [250, 250, 250, 750], 'approach': 0, 'capacity': 0},
+                    'CSC226-F': {'data': [250, 250, 750, 250], 'approach': 0, 'capacity': 0},
                     'CSC320-SP': {'data': None, 'approach': 0, 'capacity': 40},
-                    'CSC360-SU': {'data': [10, 30,10, 10], 'approach': 0, 'capacity': 0},
+                    'CSC360-SU': {'data': [250, 750, 250, 250], 'approach': 0, 'capacity': 0},
                     'CSC370-SU': {'data': None, 'approach': 0, 'capacity': 100},
                     }
 
@@ -106,7 +106,7 @@ def test_validate_input_invalid_course_enrolment():
     assert not valid
     assert 'Expected offering to be a dict not' in error
 
-    offering = {"enrollment": 0, "subjectCourse": "CSC105"}
+    offering = {"maximumEnrollment": 0, "subjectCourse": "CSC105"}
     course_enrollment_test = [offering]
     valid, error = preprocessor.validate_inputs(course_enrollment_test, program_enrollment_test, schedule_test)
 
@@ -118,9 +118,9 @@ def test_validate_input_invalid_course_enrolment():
     valid, error = preprocessor.validate_inputs(course_enrollment_test, program_enrollment_test, schedule_test)
 
     assert not valid
-    assert 'No "enrollment" field in course offering' in error
+    assert 'No "maximumEnrollment" field in course offering' in error
 
-    offering = {"term": "202301", "enrollment": 0}
+    offering = {"term": "202301", "maximumEnrollment": 0}
     course_enrollment_test = [offering]
     valid, error = preprocessor.validate_inputs(course_enrollment_test, program_enrollment_test, schedule_test)
 
@@ -128,7 +128,7 @@ def test_validate_input_invalid_course_enrolment():
     assert 'No "subjectCourse" field in course offering' in error
 
     offering = {"term": 202301,
-                "enrollment": 0,
+                "maximumEnrollment": 0,
                 "subjectCourse": "CSC105"
                 }
     course_enrollment_test = [offering]
@@ -138,17 +138,17 @@ def test_validate_input_invalid_course_enrolment():
     assert 'Expected "term" field to be string not' in error
 
     offering = {"term": '202301',
-                "enrollment": '0',
+                "maximumEnrollment": '0',
                 "subjectCourse": "CSC105"
                 }
     course_enrollment_test = [offering]
     valid, error = preprocessor.validate_inputs(course_enrollment_test, program_enrollment_test, schedule_test)
 
     assert not valid
-    assert 'Expected "enrollment" field to be int not' in error
+    assert 'Expected "maximumEnrollment" field to be int not' in error
 
     offering = {"term": '202301',
-                "enrollment": 0,
+                "maximumEnrollment": 0,
                 "subjectCourse": 1
                 }
     course_enrollment_test = [offering]
