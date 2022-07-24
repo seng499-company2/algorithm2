@@ -19,6 +19,7 @@ def assign_capacities(term: dict, term_code: str):
         course_sections = course['sections']
         num_sections = len(course_sections)
         try:
+            logging.debug('%s Post-processing' % (str(course_name)).ljust(15, ' '))
             total_capacity = internal_object[course_name]['capacity']
             if num_sections == 1:
                 
