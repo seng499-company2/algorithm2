@@ -117,8 +117,8 @@ def validate_inputs(course_enrolment: list, program_enrolment: dict, schedule: d
         if 'term' not in offering:
             error = f'No "term" field in course offering\n'
             return (False, error)
-        if 'enrollment' not in offering:
-            error = f'No "enrollment" field in course offering\n'
+        if 'maximumEnrollment' not in offering:
+            error = f'No "maximumEnrollment" field in course offering\n'
             return (False, error)
         if 'subjectCourse' not in offering:
             error = f'No "subjectCourse" field in course offering\n'
@@ -128,8 +128,8 @@ def validate_inputs(course_enrolment: list, program_enrolment: dict, schedule: d
             error = f'Expected "term" field to be string not \
             {type(offering["term"])}\n'
             return (False, error)
-        if not isinstance(offering['enrollment'], int):
-            error = f'Expected "enrollment" field to be int not \
+        if not isinstance(offering['maximumEnrollment'], int):
+            error = f'Expected "maximumEnrollment" field to be int not \
             {type(offering["enrollment"])}\n'
             return (False, error)
         if not isinstance(offering['subjectCourse'], str):
