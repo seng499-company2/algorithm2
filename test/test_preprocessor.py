@@ -118,7 +118,7 @@ def test_validate_input_invalid_course_enrolment():
     valid, error = preprocessor.validate_inputs(course_enrollment_test, program_enrollment_test, schedule_test)
 
     assert not valid
-    assert 'No "enrollment" field in course offering' in error
+    assert 'No "maximumEnrollment" field in course offering' in error
 
     offering = {"term": "202301", "enrollment": 0}
     course_enrollment_test = [offering]
