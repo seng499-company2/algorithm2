@@ -130,7 +130,7 @@ def validate_inputs(course_enrolment: list, program_enrolment: dict, schedule: d
             return (False, error)
         if not isinstance(offering['maximumEnrollment'], int):
             error = f'Expected "maximumEnrollment" field to be int not \
-            {type(offering["enrollment"])}\n'
+            {type(offering["maximumEnrollment"])}\n'
             return (False, error)
         if not isinstance(offering['subjectCourse'], str):
             error = f'Expected "subjectCourse" field to be string not \
