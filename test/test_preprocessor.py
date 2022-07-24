@@ -539,6 +539,22 @@ def test_validate_input_invalid_schedule():
 
     # assert not valid
     # assert 'Expected max_capacity to be a int not' in error
+    
+def test_max_capacity():
+    schedule_test = json.load(open('../data/mock/mockSchedule3.json', 'r'))
+    course_enrollment_test = json.load(open('../data/mock/mockHistoricCourseData.json', 'r'))
+
+    data = preprocessor.pre_process(course_enrollment_test, schedule_test)
+
+    assert data == {'CSC225-F': {'data': [250, 250, 250, 750], 'approach': 0, 'capacity': 0},
+                    'CSC226-F': {'data': [250, 250, 750, 250], 'approach': 0, 'capacity': 0},
+                    'CSC391-F': {'data': [0, 0, 0, 0], 'approach': 0, 'capacity': 60},
+                    'CSC320-SP': {'data': [250, 250, 250, 500], 'approach': 0, 'capacity': 0},
+                    'CSC360-SU': {'data': [250, 750, 250, 250], 'approach': 0, 'capacity': 0},
+                    'CSC370-SU': {'data': None, 'approach': 0, 'capacity': 100},
+                    'CSC381-SU': {'data': [0,0,0,0], 'approach': 0, 'capacity': 50}
+                    }
+
 
 
 

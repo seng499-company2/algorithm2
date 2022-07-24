@@ -20,13 +20,39 @@ def assign_capacities(term: dict, term_code: str):
         num_sections = len(course_sections)
         try:
             total_capacity = internal_object[course_name]['capacity']
-            logging.debug('%s Post-processing' % (str(course_name)).ljust(15, ' '))
             if num_sections == 1:
-                course['sections'][0]['capacity'] = total_capacity
+                if 'maxCapacity' in course['sections'][0]:
+                    maxCapacity = course['sections'][0]['maxCapacity']
+                    if int(total_capacity) >= int(maxCapacity):
+                        course['sections'][0]['capacity'] = maxCapacity
+                    else:
+                        course['sections'][0]['capacity'] = total_capacity
+                else:
+                    course['sections'][0]['capacity'] = total_capacity
                 logging.debug('%s One section with %d' % (str(course_name).ljust(15, ' '), total_capacity))
             elif num_sections == 2:
-                course['sections'][0]['capacity'] = math.ceil(total_capacity * 0.75)
-                course['sections'][1]['capacity'] = math.ceil(total_capacity * 0.25)
+                if 'maxCapacity' in course['sections'][0]:
+                    maxCapacity = course['sections'][0]['maxCapacity']
+                    if internal_object[course_name]['data'] is None or all(v == 0 for v in internal_object[course_name]['data']):
+                        course['sections'][0]['capacity'] = maxCapacity
+                    elif int(math.ceil(total_capacity * 0.75)) > int(maxCapacity):
+                        course['sections'][0]['capacity'] = maxCapacity
+                    else:
+                        course['sections'][0]['capacity'] = math.ceil(total_capacity * 0.75)
+                else:
+                    course['sections'][0]['capacity'] = math.ceil(total_capacity * 0.75)
+                
+                if 'maxCapacity' in course['sections'][1]:
+                    maxCapacity = course['sections'][1]['maxCapacity']
+                    if internal_object[course_name]['data'] is None or all(v == 0 for v in internal_object[course_name]['data']):
+                        course['sections'][1]['capacity'] = maxCapacity
+                    elif int(math.ceil(total_capacity * 0.25)) > int(maxCapacity):
+                        course['sections'][1]['capacity'] = maxCapacity
+                    else:
+                        course['sections'][1]['capacity'] = math.ceil(total_capacity * 0.25)
+                else:
+                    course['sections'][1]['capacity'] = math.ceil(total_capacity * 0.25)
+                    
                 logging.debug('%s Two sections with %d, and %d' % (str(course_name).ljust(15, ' '),
                                                                   math.ceil(total_capacity * 0.75),
                                                                   math.ceil(total_capacity * 0.25)))

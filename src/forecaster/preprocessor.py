@@ -293,6 +293,30 @@ def compute_bounds(program_enrolment: dict):
     return lower_bound, upper_bound  # Adjust the bounds to account for CSc. students
 
 
+def count_total_max_capacity(course_offering: dict):
+    total_max_capacity = 0
+    for section in course_offering["sections"]:
+        if "maxCapacity" in section:
+            total_max_capacity += int(section["maxCapacity"])
+    return int(total_max_capacity)
+
+def is_max_capacity_in_course(course_offering: dict):
+    for section in course_offering["sections"]:
+        if "maxCapacity" in section:
+            return True
+    return False
+        
+
+def check_max_capacity(schedule: dict, intermediate: dict):
+    for term in schedule:
+        for course_offering in schedule[term]:
+            if is_max_capacity_in_course(course_offering):
+                term_abbreviation = {'fall': 'F', 'spring': 'SP', 'summer': 'SU'}
+                key = course_offering['course']['code'] + '-' + term_abbreviation[term]
+                if intermediate[key]['data'] is None or all(v == 0 for v in intermediate[key]['data']):
+                    total_max_capacity = count_total_max_capacity(course_offering)
+                    intermediate[key]["capacity"] = total_max_capacity
+
 def pre_process(course_enrollment: list, schedule: dict, year_cutoff=None) -> dict:
     """ Takes class enrollment JSON and schedule JSON and generates an 
     intermediate object with data-series organized by class-term
@@ -301,8 +325,7 @@ def pre_process(course_enrollment: list, schedule: dict, year_cutoff=None) -> di
     :param schedule: JSON schedule object
 
     :return: internal intermediate course data series object
-    """
-    
+    """     
     # create a list of course-term codes for each term 
     historical_term_codes = get_historical_term_codes(course_enrollment)
 
@@ -342,5 +365,7 @@ def pre_process(course_enrollment: list, schedule: dict, year_cutoff=None) -> di
                             + section['maximumEnrollment']
                 data.append(students_enrolled)
             intermediate[key] = {'data': data, 'approach': 0, 'capacity': 0}
+            
+    check_max_capacity(schedule, intermediate)
 
     return intermediate 

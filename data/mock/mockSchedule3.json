@@ -1,0 +1,129 @@
+{
+    "fall": [
+      {
+        "course": {
+          "code": "CSC225",
+          "title": "Algorithms and Data Structures I"
+        },
+        "sections": [
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "300"
+          }
+        ]
+      },
+      {
+        "course": {
+          "code": "CSC226",
+          "title": "Algorithms and Data Structures II"
+        },
+        "sections": [
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "50"
+          },
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "50"
+          }
+        ]
+      },
+      {
+        "course": {
+          "code": "CSC391",
+          "title": "Software Development"
+        },
+        "sections": [
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "60"
+          }
+        ]
+      }
+    ],
+    "spring": [
+      {
+        "course": {
+          "code": "CSC320",
+          "title": "Foundations of Computer Science"
+        },
+        "sections": [
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "10"
+          },
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "40"
+          }
+        ]
+      }
+    ],
+    "summer": [
+      {
+        "course": {
+          "code": "CSC360",
+          "title": "Operating Systems"
+        },
+        "sections": [
+          {
+            "professor": "",
+            "capacity": "0"
+          },
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "30"
+          },
+          {
+            "professor": "",
+            "capacity": "0"
+          }
+        ]
+      },
+      {
+        "course": {
+          "code": "CSC370",
+          "title": "Databases"
+        },
+        "sections": [
+          {
+            "professor": "",
+            "capacity": "10"
+          },
+          {
+            "professor": "",
+            "capacity": "50"
+          },
+          {
+            "professor": "",
+            "capacity": "40"
+          }
+        ]
+      },
+      {
+        "course": {
+          "code": "CSC381",
+          "title": "Introduction to Forecasting"
+        },
+        "sections": [
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "30"
+          },
+          {
+            "professor": "",
+            "capacity": "0",
+            "maxCapacity": "20"
+          }
+        ]
+      }
+    ]
+  }
