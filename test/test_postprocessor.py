@@ -84,3 +84,90 @@ def test_multiple_terms():
     assert expected_fall   == actual_fall,   f"Expected {expected_fall}   Got {actual_fall}"
     assert expected_spring == actual_spring, f"Expected {expected_spring} Got {actual_spring}"
     assert expected_summer == actual_summer, f"Expected {expected_summer} Got {actual_summer}"
+
+def test_max_capacity_one_section_true():
+    schedule_test   = json.load(open('../data/mock/mockSchedule3.json', 'r'))
+    internal_object = {'CSC225-F': {'data': [10, 10, 10, 30], 'approach': 0, 'capacity': 500},
+                       'CSC226-F': {'data': [10, 10, 30, 10], 'approach': 0, 'capacity': 0},
+                       'CSC391-F': {'data': None, 'approach': 0, 'capacity': 60},
+                       'CSC320-SP': {'data': None, 'approach': 0, 'capacity': 40},
+                       'CSC360-SU': {'data': [10, 30,10, 10], 'approach': 0, 'capacity': 0},
+                       'CSC370-SU': {'data': None, 'approach': 0, 'capacity': 100},
+                       'CSC381-SU': {'data': [0,0,0,0], 'approach': 0, 'capacity': 50}
+                       }
+    schedule        = postprocessor.post_process(internal_object, schedule_test)
+
+    expected_one = '300' #assigned max cap
+    expected_two = '60'
+    actual_one = schedule['fall'][0]['sections'][0]['capacity']
+    actual_two = schedule['fall'][2]['sections'][0]['capacity']
+
+    assert expected_one == actual_one, f"Expected {expected_one} Got {actual_one}"
+    assert expected_two == actual_two, f"Expected {expected_two} Got {actual_two}"
+    
+def test_max_capacity_one_section_false():
+    schedule_test   = json.load(open('../data/mock/mockSchedule3.json', 'r'))
+    internal_object = {'CSC225-F': {'data': [10, 10, 10, 30], 'approach': 0, 'capacity': 295},
+                       'CSC226-F': {'data': [10, 10, 30, 10], 'approach': 0, 'capacity': 0},
+                       'CSC391-F': {'data': None, 'approach': 0, 'capacity': 60},
+                       'CSC320-SP': {'data': None, 'approach': 0, 'capacity': 40},
+                       'CSC360-SU': {'data': [10, 30,10, 10], 'approach': 0, 'capacity': 0},
+                       'CSC370-SU': {'data': None, 'approach': 0, 'capacity': 100},
+                       'CSC381-SU': {'data': [0,0,0,0], 'approach': 0, 'capacity': 50}
+                       }
+    schedule        = postprocessor.post_process(internal_object, schedule_test)
+   # print(schedule)
+    expected = internal_object['CSC225-F']['capacity']
+    actual   = schedule['fall'][0]['sections'][0]['capacity']
+
+    assert expected == actual, f"Expected {expected} Got {actual}"
+    
+def test_max_capacity_two_sections_false():
+    schedule_test   = json.load(open('../data/mock/mockSchedule3.json', 'r'))
+    internal_object = {'CSC225-F': {'data': [10, 10, 10, 30], 'approach': 0, 'capacity': 500},
+                       'CSC226-F': {'data': [10, 10, 30, 10], 'approach': 0, 'capacity': 40},
+                       'CSC320-SP': {'data': None, 'approach': 0, 'capacity': 40},
+                       'CSC360-SU': {'data': [10, 30,10, 10], 'approach': 0, 'capacity': 0},
+                       'CSC370-SU': {'data': None, 'approach': 0, 'capacity': 100},
+                       'CSC381-SU': {'data': [0,0,0,0], 'approach': 0, 'capacity': 50}
+                       }
+    schedule        = postprocessor.post_process(internal_object, schedule_test)
+
+    expected_one = math.ceil(internal_object["CSC226-F"]["capacity"] * 0.75)
+    expected_two = math.ceil(internal_object["CSC226-F"]["capacity"] * 0.25)
+    
+    actual_one = schedule['fall'][1]['sections'][0]['capacity']
+    actual_two = schedule['fall'][1]['sections'][1]['capacity']
+    
+    assert expected_one == actual_one, f"Expected {expected_one} Got {actual_one}"
+    assert expected_two == actual_two, f"Expected {expected_two} Got {actual_two}"
+    
+def test_max_capacity_two_sections_true():
+    schedule_test   = json.load(open('../data/mock/mockSchedule3.json', 'r'))
+    internal_object = {'CSC225-F': {'data': [10, 10, 10, 30], 'approach': 0, 'capacity': 500},
+                       'CSC226-F': {'data': [10, 10, 30, 10], 'approach': 0, 'capacity': 40},
+                       'CSC391-F': {'data': None, 'approach': 0, 'capacity': 60},
+                       'CSC320-SP': {'data': [10, 10, 10, 20], 'approach': 0, 'capacity': 60},
+                       'CSC360-SU': {'data': [10, 30,10, 10], 'approach': 0, 'capacity': 0},
+                       'CSC370-SU': {'data': None, 'approach': 0, 'capacity': 100},
+                       'CSC381-SU': {'data': [0,0,0,0], 'approach': 0, 'capacity': 50}
+                       }
+    schedule        = postprocessor.post_process(internal_object, schedule_test)
+
+    expected_one = '10' #assigned max cap
+    expected_two = math.ceil(internal_object["CSC320-SP"]["capacity"] * 0.25)
+    
+    expected_three = '30'
+    expected_four = '20'
+    
+    actual_one = schedule['spring'][0]['sections'][0]['capacity']
+    actual_two = schedule['spring'][0]['sections'][1]['capacity']
+    
+    actual_three = schedule['summer'][2]['sections'][0]['capacity']
+    actual_four = schedule['summer'][2]['sections'][1]['capacity']
+    
+    assert expected_one == actual_one, f"Expected {expected_one} Got {actual_one}"
+    assert expected_two == actual_two, f"Expected {expected_two} Got {actual_two}"
+    
+    assert expected_three == actual_three, f"Expected {expected_three} Got {actual_three}"
+    assert expected_four == actual_four, f"Expected {expected_four} Got {actual_four}"

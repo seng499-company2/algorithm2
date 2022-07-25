@@ -82,6 +82,37 @@ def generate_cutoff_semesters(year: int) -> list:
         cutoff_semesters.append(str(year) + '05')
     return cutoff_semesters
 
+def count_total_max_capacity(course_offering: dict):
+    """ Counts and returns the total maxCapacity across all sections of a course
+    """
+    total_max_capacity = 0
+    for section in course_offering["sections"]:
+        if "maxCapacity" in section:
+            total_max_capacity += int(section["maxCapacity"])
+    return int(total_max_capacity)
+
+def is_max_capacity_in_course(course_offering: dict):
+    """ Checks if any of the course section contains a maxCapacity field
+    """
+    for section in course_offering["sections"]:
+        if "maxCapacity" in section:
+            return True
+    return False
+        
+
+def check_max_capacity(schedule: dict, intermediate: dict):
+    """ This function adds up the maxCapacity of all sections for courses which have the field and no previous data
+        This is then assigned to the capacity field of the internal object
+    """
+    for term in schedule:
+        for course_offering in schedule[term]:
+            if is_max_capacity_in_course(course_offering):
+                term_abbreviation = {'fall': 'F', 'spring': 'SP', 'summer': 'SU'}
+                key = course_offering['course']['code'] + '-' + term_abbreviation[term]
+                if intermediate[key]['data'] is None or all(v == 0 for v in intermediate[key]['data']):
+                    total_max_capacity = count_total_max_capacity(course_offering)
+                    intermediate[key]["capacity"] = total_max_capacity
+
 
 #=============================================================================
 # API Functions
@@ -301,8 +332,7 @@ def pre_process(course_enrollment: list, schedule: dict, year_cutoff=None) -> di
     :param schedule: JSON schedule object
 
     :return: internal intermediate course data series object
-    """
-    
+    """     
     # create a list of course-term codes for each term 
     historical_term_codes = get_historical_term_codes(course_enrollment)
 
@@ -342,5 +372,7 @@ def pre_process(course_enrollment: list, schedule: dict, year_cutoff=None) -> di
                             + section['maximumEnrollment']
                 data.append(students_enrolled)
             intermediate[key] = {'data': data, 'approach': 0, 'capacity': 0}
+            
+    check_max_capacity(schedule, intermediate)
 
     return intermediate 
