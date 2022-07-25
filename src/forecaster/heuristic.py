@@ -56,7 +56,7 @@ def apply_heuristics(internal_series: dict, enrolment: dict) -> None:
 
     # Assign capacities to courses which have a data point
     for course in internal_series.keys():
-        if internal_series[course]["capacity"] <= 0:
+        if internal_series[course]["capacity"] <= 0 and internal_series[course]["data"] is not None:
             logging.debug('%s Trying Heuristics with data' % (str(course).ljust(15, ' ')))
             for i, enrolment in enumerate(reversed(internal_series[course]["data"])):
                 if enrolment != 0:
