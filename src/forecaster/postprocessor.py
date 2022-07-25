@@ -24,11 +24,11 @@ def assign_capacities(term: dict, term_code: str):
             if num_sections == 1:
                 
                 #Checks if course has a maxCapacity field
-                if 'maxCapacity' in course['sections'][0]:
+                if ('maxCapacity' in course['sections'][0]) and (course['sections'][0]['maxCapacity'] is not None):
                     maxCapacity = course['sections'][0]['maxCapacity']
                              
                     #Assign maxCapacity if forecasted capacity more
-                    if int(total_capacity) >= int(maxCapacity):
+                    if (int(total_capacity) >= int(maxCapacity)) and (int(maxCapacity) > 0):
                         course['sections'][0]['capacity'] = maxCapacity
                     
                     else:
@@ -39,15 +39,15 @@ def assign_capacities(term: dict, term_code: str):
             elif num_sections == 2:
                 
                 #Checks if section has a maxCapacity field
-                if 'maxCapacity' in course['sections'][0]:
+                if ('maxCapacity' in course['sections'][0]) and (course['sections'][0]['maxCapacity'] is not None):
                     maxCapacity = course['sections'][0]['maxCapacity']
                     
                     #Checks if course has no data, then assign the maxCapacity as the capacity for the section
-                    if internal_object[course_name]['data'] is None or all(v == 0 for v in internal_object[course_name]['data']):
+                    if (internal_object[course_name]['data'] is None or all(v == 0 for v in internal_object[course_name]['data'])) and (int(maxCapacity) > 0):
                         course['sections'][0]['capacity'] = maxCapacity
                         
                     #Checks if forecasted capacity is more than maxCapacity, then assign the maxCapacity as the capacity for the section
-                    elif int(math.ceil(total_capacity * 0.75)) > int(maxCapacity):
+                    elif int(math.ceil(total_capacity * 0.75)) > int(maxCapacity) and (int(maxCapacity) > 0):
                         course['sections'][0]['capacity'] = maxCapacity
                     
                     else:
@@ -56,15 +56,15 @@ def assign_capacities(term: dict, term_code: str):
                     course['sections'][0]['capacity'] = math.ceil(total_capacity * 0.75)
                 
                 #Checks if section has a maxCapacity field
-                if 'maxCapacity' in course['sections'][1]:
+                if ('maxCapacity' in course['sections'][0]) and (course['sections'][0]['maxCapacity'] is not None):
                     maxCapacity = course['sections'][1]['maxCapacity']
                     
                     #Checks if course has no data, then assign the maxCapacity as the capacity for the section
-                    if internal_object[course_name]['data'] is None or all(v == 0 for v in internal_object[course_name]['data']):
+                    if (internal_object[course_name]['data'] is None or all(v == 0 for v in internal_object[course_name]['data'])) and (int(maxCapacity) > 0):
                         course['sections'][1]['capacity'] = maxCapacity
                         
                     #Checks if forecasted capacity is more than maxCapacity, then assign the maxCapacity as the capacity for the section
-                    elif int(math.ceil(total_capacity * 0.25)) > int(maxCapacity):
+                    elif (int(math.ceil(total_capacity * 0.25)) > int(maxCapacity)) and (int(maxCapacity) > 0):
                         course['sections'][1]['capacity'] = maxCapacity
                     
                     else:
